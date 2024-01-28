@@ -21,7 +21,7 @@ public class ObstacleSpawner : MonoBehaviour
     private void Start()
     {
         AleatorizarListas();
-        ActivateFirstRoundBehavior();
+        DefaultRoundBehavior();
     }
     private void AleatorizarListas()
     {
@@ -53,18 +53,50 @@ public class ObstacleSpawner : MonoBehaviour
         return obstacles[poolIndex];
     }
 
-    public void ModifyObstacleSpeeds()
+    public void NewRoundBehavior()
     {
         foreach (GameObject item in obstacles)
         {
             item.GetComponent<Obstacle>().SetSpeed(obstacleSpeed);
         }
+
+        GameManager gameManager = GameManager.instance;
+
+        switch (gameManager.Round)
+        {
+            case 1:
+                FirstRoundBehavior();
+                break;
+
+            case 2:
+                SecondRoundBehavior();
+                break;
+
+            case 3:
+                ThirdRoundBehavior();
+                break;
+
+            case 4:
+                FourthRoundBehavior();
+                break;
+
+            case 5:
+                FithRoundBehavior();
+                break;
+
+            default:
+                break;
+        }
     }
-    private void ActivateFirstRoundBehavior()
+
+    private void DefaultRoundBehavior()
     {
         foreach (GameObject item in obstacles)
         {
-            if (item.GetComponent<Obstacle>().Type == ObstacleType.small || item.GetComponent<Obstacle>().Type == ObstacleType.wide)
+            bool a = item.GetComponent<Obstacle>().Type == ObstacleType.wide;
+            bool b = item.GetComponent<Obstacle>().Type == ObstacleType.normal;
+
+            if (a || b)
             {
                 item.GetComponent<Obstacle>().ModifyUsableState(true);
             }
@@ -74,4 +106,43 @@ public class ObstacleSpawner : MonoBehaviour
             }
         }
     }
+    private void FirstRoundBehavior()
+    {
+        foreach (GameObject item in obstacles)
+        {
+            bool a = item.GetComponent<Obstacle>().Type == ObstacleType.small;
+            bool b = item.GetComponent<Obstacle>().Type == ObstacleType.wide;
+            bool c = item.GetComponent<Obstacle>().Type == ObstacleType.normal;
+
+            if (a || b || c)
+            {
+                item.GetComponent<Obstacle>().ModifyUsableState(true);
+            }
+            else
+            {
+                item.GetComponent<Obstacle>().ModifyUsableState(false);
+            }
+        }
+    }
+    private void SecondRoundBehavior()
+    {
+        foreach (GameObject item in obstacles)
+        {
+            if (item.GetComponent<Obstacle>().Type == ObstacleType.tall)
+            {
+                item.GetComponent<Obstacle>().ModifyUsableState(true);
+            }
+        }
+    }
+    private void ThirdRoundBehavior()
+    {
+    }
+    private void FourthRoundBehavior()
+    {
+    }
+    private void FithRoundBehavior()
+    {
+    }
+
+
 }

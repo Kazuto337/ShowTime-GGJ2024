@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     private int round;
+    [SerializeField] float distanceRequiredForRound;
     public float distanceTraveled , lastDistanceChackpoint;
     public int Round { get => round; }
 
@@ -24,7 +25,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         distanceTraveled += Time.deltaTime;
-        if (lastDistanceChackpoint < 150)
+        if (lastDistanceChackpoint < distanceRequiredForRound)
         {
             lastDistanceChackpoint = distanceTraveled;
         }
@@ -38,6 +39,6 @@ public class GameManager : MonoBehaviour
     private void IncreaseRound()
     {
         round++;
-        obstaclesSpawningManager.IncreaseSpeedPercentage();
+        obstaclesSpawningManager.NewRoundBehavior();
     }
 }
