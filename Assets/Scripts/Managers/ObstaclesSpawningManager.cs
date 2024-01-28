@@ -49,8 +49,13 @@ public class ObstaclesSpawningManager : MonoBehaviour
 
     public void IncreaseSpeedPercentage()
     {
-        speedIncreasePercentage += 5;
+        speedIncreasePercentage += 0.05f;
         IncreaseSpawnersSpeed();
+        DecreaseSpawningRate();
+    }
+    private void DecreaseSpawningRate()
+    {
+        spawningActivationRate *= 0.05f;
     }
     private void IncreaseSpawnersSpeed()
     {

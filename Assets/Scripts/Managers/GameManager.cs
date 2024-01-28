@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-   public static GameManager instance;
+    public static GameManager instance;
 
     private int round;
-    public int Round { get => round;}
+    public float distanceTraveled , lastDistanceChackpoint;
+    public int Round { get => round; }
 
     ObstaclesSpawningManager obstaclesSpawningManager;
 
@@ -18,6 +19,20 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
         else instance = this;
+    }
+
+    private void Update()
+    {
+        distanceTraveled += Time.deltaTime;
+        if (lastDistanceChackpoint < 150)
+        {
+            lastDistanceChackpoint = distanceTraveled;
+        }
+        else
+        {
+            lastDistanceChackpoint = 0;
+            IncreaseRound();
+        }
     }
 
     private void IncreaseRound()
