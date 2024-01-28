@@ -6,7 +6,7 @@ public class ObstaclesSpawningManager : MonoBehaviour
 {
     [Header("Properties")]
 
-    [SerializeField] float spawningActivationRate;
+    [SerializeField , Range(0.25f , 1)] float spawningActivationRate;
     private float spawningTimer = 0;
     [SerializeField] ObstacleSpawner spawner1 , spawner2, spawner3;
 
