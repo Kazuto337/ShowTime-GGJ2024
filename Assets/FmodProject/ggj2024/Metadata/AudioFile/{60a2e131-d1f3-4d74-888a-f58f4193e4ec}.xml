@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="AudioFile" id="{60a2e131-d1f3-4d74-888a-f58f4193e4ec}">
+		<property name="assetPath">
+			<value>Gameplay Theme.mp3</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>48.222040816326533</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{c181b971-7457-4c36-a2b3-129d30791efd}</destination>
+		</relationship>
+	</object>
+</objects>
