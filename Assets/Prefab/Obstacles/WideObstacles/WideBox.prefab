@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0
-  type: 0
+  type: 3
 --- !u!54 &5628838740074952051
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -160,5 +160,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.0100000035, y: 0.0100000035, z: 0.020000001}
-  m_Center: {x: 0, y: 0, z: 0.01000028}
+  m_Size: {x: 1.0377573, y: 1.0251715, z: 2.019451}
+  m_Center: {x: -0.471968, y: 0.47826087, z: -1.0005718}

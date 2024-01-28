@@ -5,6 +5,7 @@ using UnityEngine;
 public enum ObstacleType
 {
     small = 0,
+    normal,
     tall,
     wide
 }
