@@ -3,7 +3,112 @@ guid: aa622d59e19fde946803cf51b4267ebf
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Boca
+    second: {fileID: 2100000, guid: 6292158400debc3479254c11fa2cf669, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BordeManga
+    second: {fileID: 2100000, guid: e121be436e215d04389ba29f7c4f41ac, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Botones Camisa
+    second: {fileID: 2100000, guid: b0e6503a8d71a124cbf8040fd96bc6fd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cabello
+    second: {fileID: 2100000, guid: 63c6f7e9f7ab08b488faedd6cc544e20, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CamisaPrincipal
+    second: {fileID: 2100000, guid: b49c056d2dc26744aa64081ed011ccf8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cejas
+    second: {fileID: 2100000, guid: 0f7e767b3dac3e04cb4f20a53780d4fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ChapitaBPantalon
+    second: {fileID: 2100000, guid: cb3032dcc1a12a44a909a33b4c5e926f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ChapitaCinturon
+    second: {fileID: 2100000, guid: 36859f21a9f188d40ad7f313dc64e8c5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CorreaS
+    second: {fileID: 2100000, guid: f860d7267a3ebb947bfb0cdf9a76b40d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CuelloArriba
+    second: {fileID: 2100000, guid: 26bdce671830f484b8f56e07952c0674, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: CuelloBajo
+    second: {fileID: 2100000, guid: c017113ef1d0684478b73c65e5c7b628, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Flort de Sombrero
+    second: {fileID: 2100000, guid: c553ffac93142b642972294d7de60724, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: InteriorCamisa
+    second: {fileID: 2100000, guid: 18d1bfce12ded7844b6153ff08394ebc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: "Ma\xF1ito"
+    second: {fileID: 2100000, guid: 1d903c84a5ce4d1428be6d8927c0b54a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Nariz
+    second: {fileID: 2100000, guid: 1df3118f945ed1f4f9b19de9bb5ae9a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ojos
+    second: {fileID: 2100000, guid: 4013c1610d3329c4eadd19740604cd49, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pantalones
+    second: {fileID: 2100000, guid: a83ef4db60e7d8341a19f684744432be, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Piel
+    second: {fileID: 2100000, guid: ab0eb00e87d177d46845f6daf27c90ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Sombrero
+    second: {fileID: 2100000, guid: 4018af294979a954286ed58d9b66599a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Zapatos
+    second: {fileID: 2100000, guid: b4f94cb73b76a0541aef2341e8eef341, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cuero cinturon
+    second: {fileID: 2100000, guid: e97d83c1d50f13c4c8c1ff5d9de9e22f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -17,10 +122,7 @@ ModelImporter:
     removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
-      does not match position in animation file:\n\t'mixamorig:LeftUpLeg' : position
-      error = 453.955780 mm\n\t'mixamorig:RightUpLeg' : position error = 452.658112
-      mm\n"
+    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 

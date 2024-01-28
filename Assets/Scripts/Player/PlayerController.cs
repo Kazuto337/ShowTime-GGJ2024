@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour
     private float verticalVelocity;
     private float groundedTimer;        // to allow jumping when going down ramps
     private float playerSpeed = 2.0f;
-    private float bckdMove = -1.0f;
+    private float bckdMove = 1.0f;
     private float jumpHeight = 1.0f;
     private float gravityValue = 9.81f;
 
@@ -45,20 +45,20 @@ public class PlayerController : MonoBehaviour
 
 
         Vector3 move;
-        float vMovement = Mathf.Abs(Input.GetAxis("Vertical"));
+        float vMovement = Input.GetAxis("Vertical");
         float hMovement = Input.GetAxis("Horizontal");
         Debug.Log(vMovement);
 
         if (vMovement > 0)
         {
-            move = new Vector3(-hMovement, 0, vMovement);
+            move = new Vector3(hMovement, 0, -vMovement);
             animator.SetFloat("ZSpeed", vMovement);
             animator.SetFloat("XSpeed", Mathf.Abs(hMovement));
 
         }
-        else if(groundedTimer > 0)
+        else if (groundedTimer > 0)
         {
-            move = new Vector3(-hMovement, 0, bckdMove);
+            move = new Vector3(hMovement, 0, bckdMove);
             animator.SetFloat("ZSpeed", 0);
             animator.SetFloat("XSpeed", Mathf.Abs(hMovement));
         }
@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour
 
                 // Physics dynamics formula for calculating jump up velocity based on height and gravity
                 verticalVelocity += Mathf.Sqrt(jumpHeight * 2 * gravityValue);
-                
+
             }
         }
 
@@ -113,7 +113,7 @@ public class PlayerController : MonoBehaviour
         {
             ragdollBone.isKinematic = bisAnimating;
         }
-        
+
 
         animator.enabled = bisAnimating;
         if (bisAnimating)
