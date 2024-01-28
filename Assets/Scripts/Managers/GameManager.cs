@@ -41,6 +41,10 @@ public class GameManager : MonoBehaviour
         round++;
         obstaclesSpawningManager.NewRoundBehavior();
     }
+    public void GameOver()
+    {
+        PauseGame();
+    }
 
     public void PauseGame()
     {

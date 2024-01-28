@@ -14,7 +14,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator animator;
     private float verticalVelocity;
     private float groundedTimer;        // to allow jumping when going down ramps
-    private float playerSpeed = 2.0f;
+
+    [Header("To set different Player Speed")]
+    [SerializeField] private float playerSpeed = 2.0f;
+    [SerializeField] private float reduceSpeedFactor = 0.2f;
+
 
     [Header("To set different backguard velocities")]
     [SerializeField] private float bckdMove = 1.0f;
@@ -111,25 +115,25 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    /*private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Obstacle(Wide)")
-        {
-            ToggleRaddoll(false);
-        }
-    }*/
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if(hit.gameObject.tag == "Obstacle(Wide)" || hit.gameObject.tag == "Obstacle(Tall)")
         {
-            Debug.LogError("Works papi!!!");
+            Debug.LogError("Big");
             ToggleRaddoll(false);
+            //Invoke("EndGame", 1.2f);
         }
         if (hit.gameObject.tag == "Obstacle(Small)")
         {
             
             isDrunkWalk = true;
-            Debug.LogError("First");
+            playerSpeed -= reduceSpeedFactor;
+            Debug.LogError("Small");
+        }
+        if (hit.gameObject.tag == "DeadZone")
+        {
+            EndGame();
+            
         }
     }
     
@@ -162,6 +166,11 @@ public class PlayerController : MonoBehaviour
     private void ReactivateCharacterController()
     {
         controller.enabled = true;
+    }
+    private void EndGame()
+    {
+        GameManager.instance.GameOver();
+        Debug.LogError("Game has ended");
     }
 
 }

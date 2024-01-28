@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aa622d59e19fde946803cf51b4267ebf, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: aa622d59e19fde946803cf51b4267ebf, type: 3}
       propertyPath: m_LocalScale.x
@@ -3361,7 +3361,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &347773582 stripped
 GameObject:
@@ -9210,6 +9210,8 @@ MonoBehaviour:
   respawn: 30
   controller: {fileID: 1147992381}
   animator: {fileID: 1683307}
+  playerSpeed: 2
+  reduceSpeedFactor: 0.2
   bckdMove: 1
   bckdMoveNormal: 1
   bckdMoveRagDoll: 2
@@ -13065,6 +13067,51 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6643478272790880883, guid: d37a54b6cebc9bb49a2ba0bbf9463669, type: 3}
   m_PrefabInstance: {fileID: 1662406828}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1664286735
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1664286737}
+  - component: {fileID: 1664286736}
+  m_Layer: 0
+  m_Name: DeadZone
+  m_TagString: DeadZone
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1664286736
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664286735}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.4273348, y: 1, z: 1.7776467}
+  m_Center: {x: 0, y: 0, z: -0.08019259}
+--- !u!4 &1664286737
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664286735}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.01, y: -0.8, z: 2.82}
+  m_LocalScale: {x: 18.550001, y: 1, z: 18.550001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1665751804
 GameObject:
   m_ObjectHideFlags: 0
@@ -14297,7 +14344,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1782226681 stripped
 GameObject:
