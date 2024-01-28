@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7754560700335713771}
   - component: {fileID: 7754560700335713768}
   - component: {fileID: 7754560700335713769}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Denture
   m_TagString: Obstacle(Small)
   m_Icon: {fileID: 0}
@@ -143,7 +143,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6893312904186285395}
   - component: {fileID: 7625975395496836266}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GameObject
   m_TagString: Platform
   m_Icon: {fileID: 0}

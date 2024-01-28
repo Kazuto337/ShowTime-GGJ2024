@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1051217546757765375}
   - component: {fileID: 906273654092113923}
   - component: {fileID: 1026718029853807395}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dumbbell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 3144752092914031395}
   - component: {fileID: 7931235947474688264}
   - component: {fileID: 3841094654474338305}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Dumbbell
   m_TagString: Obstacle(Small)
   m_Icon: {fileID: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1210550940114085119}
   - component: {fileID: 4138213614237914467}
   - component: {fileID: -3789618941913322112}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: TallBox
   m_TagString: Obstacle(Tall)
   m_Icon: {fileID: 0}

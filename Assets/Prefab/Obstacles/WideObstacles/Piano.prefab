@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8031452641792241793}
   - component: {fileID: 4693468624937389789}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GameObject
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 5206087032312495853}
   - component: {fileID: 3790542868286764393}
   - component: {fileID: 2990981696268242349}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Piano
   m_TagString: Obstacle(Wide)
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 3215875161494931483}
   - component: {fileID: 1507870160723093786}
   - component: {fileID: 3846615134731096626}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Piano
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float bckdMoveNormal = 1.0f;
     [SerializeField] private float bckdMoveRagDoll = 2.0f;
     [Space(2)]
+    [Header("To set different behaviors")]
+    private bool isDrunkWalk = false;
 
     private float jumpHeight = 1.0f;
     private float gravityValue = 9.81f;
@@ -56,6 +58,7 @@ public class PlayerController : MonoBehaviour
         {
             move = new Vector3(hMovement, 0, -vMovement);
             animator.SetFloat("ZSpeed", vMovement);
+            animator.SetBool("Drunk", isDrunkWalk);
             animator.SetFloat("XSpeed", Mathf.Abs(hMovement));
 
         }
@@ -107,6 +110,29 @@ public class PlayerController : MonoBehaviour
 
 
     }
+
+    /*private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "Obstacle(Wide)")
+        {
+            ToggleRaddoll(false);
+        }
+    }*/
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        if(hit.gameObject.tag == "Obstacle(Wide)" || hit.gameObject.tag == "Obstacle(Tall)")
+        {
+            Debug.LogError("Works papi!!!");
+            ToggleRaddoll(false);
+        }
+        if (hit.gameObject.tag == "Obstacle(Small)")
+        {
+            
+            isDrunkWalk = true;
+            Debug.LogError("First");
+        }
+    }
+    
 
     private void ToggleRaddoll(bool bisAnimating)
     {

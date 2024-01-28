@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2004164901124050126}
   - component: {fileID: 3206530837000553323}
   - component: {fileID: 836285826560292769}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Banana (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 1647726621515198507}
   - component: {fileID: 2410056046766800782}
   - component: {fileID: 474789450937912132}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Banana (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 4086220925336259556}
   - component: {fileID: 1088454790375048257}
   - component: {fileID: 2953799043478745227}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Banana (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 4655752490264001186}
   - component: {fileID: 8589303112728868103}
   - component: {fileID: 5825303750348931533}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Banana (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 7641356754980277574}
   - component: {fileID: 6747613725679583971}
   - component: {fileID: 8809218609948554793}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Banana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 7273775082023005659}
   - component: {fileID: 6007371389921567358}
   - component: {fileID: 8411192735621338804}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Banana (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -509,7 +509,7 @@ GameObject:
   - component: {fileID: 8928574333349111708}
   - component: {fileID: 5496485675748206649}
   - component: {fileID: 7756192312260975859}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Banana (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -592,7 +592,7 @@ GameObject:
   - component: {fileID: 9144557457521442718}
   - component: {fileID: 5280511363229806651}
   - component: {fileID: 7974980291668804849}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Banana (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -676,7 +676,7 @@ GameObject:
   - component: {fileID: 5842443787479012794}
   - component: {fileID: 6043137734010162539}
   - component: {fileID: 7188353563585068219}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bananas
   m_TagString: Obstacle(Small)
   m_Icon: {fileID: 0}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 862174059007992159}
   - component: {fileID: 5596078558326393168}
   - component: {fileID: 2236310498749633195}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Canincas 1
   m_TagString: Obstacle(Small)
   m_Icon: {fileID: 0}

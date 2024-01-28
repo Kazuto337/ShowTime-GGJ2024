@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4807223130471788078}
   - component: {fileID: 2014544180447754212}
   - component: {fileID: 8251866605784713638}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pot
   m_TagString: Obstacle(Tall)
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 6255165567263000920}
   - component: {fileID: 1405329706825940155}
   - component: {fileID: 1096644069675776718}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Pot
   m_TagString: Untagged
   m_Icon: {fileID: 0}

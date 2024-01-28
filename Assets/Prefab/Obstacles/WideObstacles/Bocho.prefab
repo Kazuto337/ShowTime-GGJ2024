@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8970733780691279163}
   - component: {fileID: 421836924679458087}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GameObject
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 1024598614379560140}
   - component: {fileID: 3041350458069886549}
   - component: {fileID: 9196740656608151598}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bocho
   m_TagString: Obstacle(Wide)
   m_Icon: {fileID: 0}
@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 2579187607491774446}
   - component: {fileID: 4317204985881499115}
   - component: {fileID: 6726281005966916802}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bocho
   m_TagString: Untagged
   m_Icon: {fileID: 0}

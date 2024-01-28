@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2537614627583319734}
   - component: {fileID: 1484130254099271955}
   - component: {fileID: 3709919167729608153}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: BigBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 3502317127439741749}
   - component: {fileID: 5628838740074952051}
   - component: {fileID: 309162321073799724}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: WideBox
   m_TagString: Obstacle(Wide)
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8601631261642212926}
   - component: {fileID: 8097573824695710830}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: GameObject
   m_TagString: Platform
   m_Icon: {fileID: 0}
