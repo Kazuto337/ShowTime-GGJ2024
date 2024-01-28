@@ -9,7 +9,10 @@ public class HighScoreBrehavior : MonoBehaviour
     public float lastHighScore;
     void Start()
     {
-        highScore.text = SaveSystem.LoadHighScore().Score.ToString();
+        if (highScore != null)
+        {
+            highScore.text = SaveSystem.LoadHighScore().Score.ToString() + " mts"; 
+        }
         lastHighScore = SaveSystem.LoadHighScore().Score;
     }
 }
