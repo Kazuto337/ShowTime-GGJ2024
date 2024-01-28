@@ -2,16 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum ObstacleType
+{
+    small = 0,
+    tall,
+    wide
+}
 [RequireComponent(typeof(Rigidbody))]
 public class Obstacle : MonoBehaviour
 {
     [SerializeField] float speed;
     Vector3 initialPosition;
+    private bool usable;
+    [SerializeField] ObstacleType type;
+
+    public bool Usable { get => usable;}
+    public ObstacleType Type { get => type;}
+    public float Speed { get => speed;}
 
     private void Start()
     {
         initialPosition = transform.position;
-        speed = 5;
     }
 
     private void Update()
@@ -24,9 +35,13 @@ public class Obstacle : MonoBehaviour
             transform.position = new Vector3(currentPosition.x, currentPosition.y, newZAxisPosition);
         }
     }
-    public void ModifySpeed(float newSpeed)
+    public void SetSpeed(float newSpeed)
     {
         speed = newSpeed;
+    }
+    public void ModifyUsableState(bool newUsable)
+    {
+        usable = newUsable;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,4 +52,5 @@ public class Obstacle : MonoBehaviour
             transform.position = initialPosition;
         }
     }
+
 }

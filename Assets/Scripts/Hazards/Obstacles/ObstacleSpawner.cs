@@ -4,7 +4,37 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    [SerializeField] List<GameObject> smallObstacles, tallObstacles, wideObstacles;
+    [SerializeField] List<GameObject> obstacles;
+    static float obstacleSpeed;
+
+    public static float ObstacleSpeed { get => obstacleSpeed; set => obstacleSpeed = value; }
+
+    private void Awake()
+    {
+        obstacleSpeed = 5;
+        foreach (GameObject item in obstacles)
+        {
+            item.GetComponent<Obstacle>().SetSpeed(obstacleSpeed);
+        }
+    }
+
+    private void Start()
+    {
+        AleatorizarListas();
+        ActivateFirstRoundBehavior();
+    }
+    private void AleatorizarListas()
+    {
+        System.Random rnd = new System.Random();
+
+        int n = obstacles.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rnd.Next(n + 1);
+            (obstacles[k], obstacles[n]) = (obstacles[n], obstacles[k]);
+        }
+    }
     public void Spawn()
     {
         GameObject obstacle = LoadObstacle();
@@ -14,56 +44,34 @@ public class ObstacleSpawner : MonoBehaviour
 
     private GameObject LoadObstacle()
     {
-        int poolIndex = Random.Range(1, 4);
-        GameObject obstacle = smallObstacles[Random.Range(0, smallObstacles.Count)];
+        int poolIndex = Random.Range(0, obstacles.Count);
 
-        switch (poolIndex)
+        while (obstacles[poolIndex].GetComponent<Obstacle>().Usable == false)
         {
-            case 1:
-
-                obstacle = smallObstacles[Random.Range(0, smallObstacles.Count)];
-                while (obstacle.activeInHierarchy)
-                {
-                    obstacle = smallObstacles[Random.Range(0, smallObstacles.Count)];
-                }
-                break;
-
-            case 2:
-                obstacle = smallObstacles[Random.Range(0, smallObstacles.Count)];
-                while (obstacle.activeInHierarchy)
-                {
-                    obstacle = tallObstacles[Random.Range(0, smallObstacles.Count)];
-                }
-                break;
-
-            case 3:
-                obstacle = smallObstacles[Random.Range(0, smallObstacles.Count)];
-                while (obstacle.activeInHierarchy)
-                {
-                    obstacle = tallObstacles[Random.Range(0, smallObstacles.Count)];
-                }
-                break;
-
-            default:
-                return null;
+            poolIndex = Random.Range(0, obstacles.Count);
         }
-
-        return obstacle;
+        return obstacles[poolIndex];
     }
 
-    public void ModifyObstacleSpeeds(float newSpeed)
+    public void ModifyObstacleSpeeds()
     {
-        foreach (GameObject item in smallObstacles)
+        foreach (GameObject item in obstacles)
         {
-            item.GetComponent<Obstacle>().ModifySpeed(newSpeed);
+            item.GetComponent<Obstacle>().SetSpeed(obstacleSpeed);
         }
-        foreach (GameObject item in tallObstacles)
+    }
+    private void ActivateFirstRoundBehavior()
+    {
+        foreach (GameObject item in obstacles)
         {
-            item.GetComponent<Obstacle>().ModifySpeed(newSpeed);
-        }
-        foreach (GameObject item in wideObstacles)
-        {
-            item.GetComponent<Obstacle>().ModifySpeed(newSpeed);
+            if (item.GetComponent<Obstacle>().Type == ObstacleType.small || item.GetComponent<Obstacle>().Type == ObstacleType.wide)
+            {
+                item.GetComponent<Obstacle>().ModifyUsableState(true);
+            }
+            else
+            {
+                item.GetComponent<Obstacle>().ModifyUsableState(false);
+            }
         }
     }
 }

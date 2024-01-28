@@ -10,6 +10,8 @@ public class ObstaclesSpawningManager : MonoBehaviour
     private float spawningTimer = 0;
     [SerializeField] ObstacleSpawner spawner1 , spawner2, spawner3;
 
+    float speedIncreasePercentage;
+
     private void Start()
     {
         spawningTimer = spawningActivationRate;
@@ -43,5 +45,19 @@ public class ObstaclesSpawningManager : MonoBehaviour
                 spawner3.Spawn();
                 break;
         }
+    }
+
+    public void IncreaseSpeedPercentage()
+    {
+        speedIncreasePercentage += 5;
+        IncreaseSpawnersSpeed();
+    }
+    private void IncreaseSpawnersSpeed()
+    {
+        float newSpeed = ObstacleSpawner.ObstacleSpeed + (ObstacleSpawner.ObstacleSpeed * speedIncreasePercentage);
+
+        spawner1.ModifyObstacleSpeeds();
+        spawner2.ModifyObstacleSpeeds();
+        spawner3.ModifyObstacleSpeeds();
     }
 }
