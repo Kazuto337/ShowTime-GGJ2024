@@ -41,4 +41,22 @@ public class GameManager : MonoBehaviour
         round++;
         obstaclesSpawningManager.NewRoundBehavior();
     }
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+    }
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+    }
+    public void PlayAgain()
+    {
+        SaveScore();
+        ResumeGame();
+    }
+    public void SaveScore()
+    {
+
+    }
 }
