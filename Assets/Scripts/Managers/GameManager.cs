@@ -4,15 +4,40 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static GameManager instance;
+
+    private int round;
+    public float distanceTraveled , lastDistanceChackpoint;
+    public int Round { get => round; }
+
+    ObstaclesSpawningManager obstaclesSpawningManager;
+
+    private void Awake()
     {
-        
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else instance = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        distanceTraveled += Time.deltaTime;
+        if (lastDistanceChackpoint < 150)
+        {
+            lastDistanceChackpoint = distanceTraveled;
+        }
+        else
+        {
+            lastDistanceChackpoint = 0;
+            IncreaseRound();
+        }
+    }
+
+    private void IncreaseRound()
+    {
+        round++;
+        obstaclesSpawningManager.IncreaseSpeedPercentage();
     }
 }
