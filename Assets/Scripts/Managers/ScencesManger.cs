@@ -7,7 +7,7 @@ public class ScencesManger : MonoBehaviour
 {
     public void LoadScene(int sceneIndex)
     {
-        SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadSceneAsync(sceneIndex);
     }
     public void QuitGame()
     {

@@ -1021,6 +1021,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1308032665}
   - component: {fileID: 1308032666}
+  - component: {fileID: 1308032667}
   m_Layer: 0
   m_Name: SceneManager
   m_TagString: Untagged
@@ -1055,6 +1056,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65eec142c1599b44285acb688fe8c0a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1308032667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308032663}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 146305021ed0e5447a3158ec32f9bd35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  highScore: {fileID: 513294332}
 --- !u!1 &1431936079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1759,8 +1773,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -122.4, y: -100}
-  m_SizeDelta: {x: 122.2029, y: 68.7391}
+  m_AnchoredPosition: {x: -132.8, y: -108.2}
+  m_SizeDelta: {x: 161.1663, y: 62.8663}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2086736780
 MonoBehaviour:

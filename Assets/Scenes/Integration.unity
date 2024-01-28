@@ -3348,6 +3348,7 @@ MonoBehaviour:
   distanceRequiredForRound: 50
   distanceTraveled: 0
   lastDistanceChackpoint: 0
+  scoreText: {fileID: 1826748100}
 --- !u!4 &346050063
 Transform:
   m_ObjectHideFlags: 0

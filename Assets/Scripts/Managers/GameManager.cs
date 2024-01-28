@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class GameManager : MonoBehaviour
     private int round;
     [SerializeField] float distanceRequiredForRound;
     public float distanceTraveled , lastDistanceChackpoint;
+    [SerializeField] TMP_Text scoreText;
     public int Round { get => round; }
 
     ObstaclesSpawningManager obstaclesSpawningManager;
@@ -25,6 +27,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         distanceTraveled += Time.deltaTime;
+        scoreText.text = distanceTraveled.ToString() + " mts";
         if (lastDistanceChackpoint < distanceRequiredForRound)
         {
             lastDistanceChackpoint = distanceTraveled;
@@ -61,6 +64,6 @@ public class GameManager : MonoBehaviour
     }
     public void SaveScore()
     {
-
+        SaveSystem.SaveHighScore(distanceTraveled);
     }
 }
