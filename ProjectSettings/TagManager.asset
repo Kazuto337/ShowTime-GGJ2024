@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Boundary
+  - Obstacle(Small)
+  - Obstacle(Wide)
+  - Obstacle(Tall)
+  - Platform
   layers:
   - Default
   - TransparentFX
