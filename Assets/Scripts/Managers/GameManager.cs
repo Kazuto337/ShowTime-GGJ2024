@@ -10,6 +10,7 @@ public class GameManager : MonoBehaviour
     private int round;
     [SerializeField] float distanceRequiredForRound;
     public float distanceTraveled , lastDistanceChackpoint;
+    [SerializeField] GameObject gameOverPanel;
     [SerializeField] TMP_Text scoreText;
     public int Round { get => round; }
 
@@ -46,6 +47,7 @@ public class GameManager : MonoBehaviour
     }
     public void GameOver()
     {
+        gameOverPanel.SetActive(true);
         PauseGame();
     }
 
