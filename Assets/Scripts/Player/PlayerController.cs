@@ -15,7 +15,13 @@ public class PlayerController : MonoBehaviour
     private float verticalVelocity;
     private float groundedTimer;        // to allow jumping when going down ramps
     private float playerSpeed = 2.0f;
-    private float bckdMove = 1.0f;
+
+    [Header("To set different backguard velocities")]
+    [SerializeField] private float bckdMove = 1.0f;
+    [SerializeField] private float bckdMoveNormal = 1.0f;
+    [SerializeField] private float bckdMoveRagDoll = 2.0f;
+    [Space(2)]
+
     private float jumpHeight = 1.0f;
     private float gravityValue = 9.81f;
 
@@ -27,23 +33,20 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log("Hola Mundo");
         if (Input.GetKey("v")) ToggleRaddoll(false);
         if (Input.GetKey("c")) ToggleRaddoll(true);
 
+        #region checking ground
         bool groundedPlayer = controller.isGrounded;
         if (groundedPlayer) groundedTimer = 0.2f;
-
         if (groundedTimer > 0) groundedTimer -= Time.deltaTime;
-
-
-
         if (groundedPlayer && verticalVelocity < 0) verticalVelocity = 0f;
+        #endregion
 
 
         verticalVelocity -= gravityValue * Time.deltaTime;
 
-
+        #region movement parameters
         Vector3 move;
         float vMovement = Input.GetAxis("Vertical");
         float hMovement = Input.GetAxis("Horizontal");
@@ -59,6 +62,7 @@ public class PlayerController : MonoBehaviour
         else if (groundedTimer > 0)
         {
             move = new Vector3(hMovement, 0, bckdMove);
+           
             animator.SetFloat("ZSpeed", 0);
             animator.SetFloat("XSpeed", Mathf.Abs(hMovement));
         }
@@ -71,6 +75,7 @@ public class PlayerController : MonoBehaviour
 
 
         move *= playerSpeed;
+        #endregion
 
 
         if (move.magnitude > 0.05f)
@@ -122,6 +127,15 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Toggle RadbollIs runing I guess");
 
         }
+
+        if (bisAnimating == false) bckdMove = bckdMoveRagDoll;
+        else bckdMove = bckdMoveNormal;
+        Invoke("ReactivateCharacterController", .6f);
+    }
+
+    private void ReactivateCharacterController()
+    {
+        controller.enabled = true;
     }
 
 }
