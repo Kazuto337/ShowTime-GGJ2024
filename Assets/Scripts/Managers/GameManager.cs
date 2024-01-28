@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -9,6 +10,10 @@ public class GameManager : MonoBehaviour
     private int round;
     [SerializeField] float distanceRequiredForRound;
     public float distanceTraveled , lastDistanceChackpoint;
+    [SerializeField] GameObject gameOverPanel , newHighScoreView , obtainedScore;
+    [SerializeField] TMP_Text scoreText , newHighScoreTXT, obtainedScoreTXT;
+
+    [SerializeField] HighScoreBrehavior scoreBrehavior;
     public int Round { get => round; }
 
     ObstaclesSpawningManager obstaclesSpawningManager;
@@ -25,6 +30,7 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         distanceTraveled += Time.deltaTime;
+        scoreText.text = distanceTraveled.ToString() + " mts";
         if (lastDistanceChackpoint < distanceRequiredForRound)
         {
             lastDistanceChackpoint = distanceTraveled;
@@ -41,6 +47,22 @@ public class GameManager : MonoBehaviour
         round++;
         obstaclesSpawningManager.NewRoundBehavior();
     }
+    public void GameOver()
+    {
+        gameOverPanel.SetActive(true);
+        if (distanceTraveled > scoreBrehavior.lastHighScore)
+        {
+            newHighScoreView.SetActive(true);
+            newHighScoreTXT.text = distanceTraveled.ToString() + " mts";
+            SaveScore();
+        }
+        else
+        {
+            obtainedScore.SetActive(true);
+            obtainedScoreTXT.text = distanceTraveled.ToString() + " mts";
+        }
+        PauseGame();
+    }
 
     public void PauseGame()
     {
@@ -52,11 +74,11 @@ public class GameManager : MonoBehaviour
     }
     public void PlayAgain()
     {
-        SaveScore();
+        ScencesManger.instance.Restart();
         ResumeGame();
     }
     public void SaveScore()
     {
-
+        SaveSystem.SaveHighScore(distanceTraveled);
     }
 }

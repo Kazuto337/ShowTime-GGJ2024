@@ -14,7 +14,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Animator animator;
     private float verticalVelocity;
     private float groundedTimer;        // to allow jumping when going down ramps
-    private float playerSpeed = 2.0f;
+
+    [Header("To set different Player Speed")]
+    [SerializeField] private float playerSpeed = 2.0f;
+    [SerializeField] private float reduceSpeedFactor = 0.2f;
+
 
     [Header("To set different backguard velocities")]
     [SerializeField] private float bckdMove = 1.0f;
@@ -23,6 +27,7 @@ public class PlayerController : MonoBehaviour
     [Space(2)]
     [Header("To set different behaviors")]
     private bool isDrunkWalk = false;
+    private bool canMove = true;
 
     private float jumpHeight = 1.0f;
     private float gravityValue = 9.81f;
@@ -44,8 +49,6 @@ public class PlayerController : MonoBehaviour
         if (groundedTimer > 0) groundedTimer -= Time.deltaTime;
         if (groundedPlayer && verticalVelocity < 0) verticalVelocity = 0f;
         #endregion
-
-
         verticalVelocity -= gravityValue * Time.deltaTime;
 
         #region movement parameters
@@ -54,7 +57,7 @@ public class PlayerController : MonoBehaviour
         float hMovement = Input.GetAxis("Horizontal");
         Debug.Log(vMovement);
 
-        if (vMovement > 0)
+        if (vMovement > 0 && canMove)
         {
             move = new Vector3(hMovement, 0, -vMovement);
             animator.SetFloat("ZSpeed", vMovement);
@@ -65,7 +68,7 @@ public class PlayerController : MonoBehaviour
         else if (groundedTimer > 0)
         {
             move = new Vector3(hMovement, 0, bckdMove);
-           
+
             animator.SetFloat("ZSpeed", 0);
             animator.SetFloat("XSpeed", Mathf.Abs(hMovement));
         }
@@ -87,7 +90,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // allow jump as long as the player is on the ground
-        if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump") && canMove)
         {
             // must have been grounded recently to allow jump
             if (groundedTimer > 0)
@@ -109,27 +112,29 @@ public class PlayerController : MonoBehaviour
         controller.Move(move * Time.deltaTime);
 
 
+
+
     }
 
-    /*private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "Obstacle(Wide)")
-        {
-            ToggleRaddoll(false);
-        }
-    }*/
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if(hit.gameObject.tag == "Obstacle(Wide)" || hit.gameObject.tag == "Obstacle(Tall)")
         {
-            Debug.LogError("Works papi!!!");
+            Debug.LogError("Big");
             ToggleRaddoll(false);
+            //Invoke("EndGame", 1.2f);
         }
         if (hit.gameObject.tag == "Obstacle(Small)")
         {
             
             isDrunkWalk = true;
-            Debug.LogError("First");
+            //playerSpeed -= reduceSpeedFactor;
+            Debug.LogError("Small");
+        }
+        if (hit.gameObject.tag == "DeadZone")
+        {
+            EndGame();
+            
         }
     }
     
@@ -137,6 +142,7 @@ public class PlayerController : MonoBehaviour
     private void ToggleRaddoll(bool bisAnimating)
     {
         Debug.Log("Toggle Radboll");
+        canMove = bisAnimating;
         bIsRagDoll = !bIsRagDoll;
 
         controller.enabled = bisAnimating;
@@ -162,6 +168,11 @@ public class PlayerController : MonoBehaviour
     private void ReactivateCharacterController()
     {
         controller.enabled = true;
+    }
+    private void EndGame()
+    {
+        GameManager.instance.GameOver();
+        Debug.LogError("Game has ended");
     }
 
 }
