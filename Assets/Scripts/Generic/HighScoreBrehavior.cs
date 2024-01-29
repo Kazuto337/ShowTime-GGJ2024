@@ -11,7 +11,7 @@ public class HighScoreBrehavior : MonoBehaviour
     {
         if (highScore != null)
         {
-            highScore.text = SaveSystem.LoadHighScore().Score.ToString() + " mts"; 
+            highScore.text = SaveSystem.LoadHighScore().Score.ToString("F2") + " mts"; 
         }
         lastHighScore = SaveSystem.LoadHighScore().Score;
     }

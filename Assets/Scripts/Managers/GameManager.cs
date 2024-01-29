@@ -63,13 +63,13 @@ public class GameManager : MonoBehaviour
         if (distanceTraveled > scoreBrehavior.lastHighScore)
         {
             newHighScoreView.SetActive(true);
-            newHighScoreTXT.text = distanceTraveled.ToString() + " mts";
+            newHighScoreTXT.text = distanceTraveled.ToString("F2") + " mts";
             SaveScore();
         }
         else
         {
             obtainedScore.SetActive(true);
-            obtainedScoreTXT.text = distanceTraveled.ToString() + " mts";
+            obtainedScoreTXT.text = distanceTraveled.ToString("F2") + " mts";
         }
         PauseGame();
     }
