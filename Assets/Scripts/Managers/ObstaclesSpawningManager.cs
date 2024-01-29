@@ -58,11 +58,13 @@ public class ObstaclesSpawningManager : MonoBehaviour
     }
     private void DecreaseSpawningRate()
     {
-        spawningActivationRate *= 0.05f;
+        spawningActivationRate -= spawningActivationRate * 0.10f;
     }
     private void NewRoundSpawnersBehavior()
     {
         float newSpeed = ObstacleSpawner.ObstacleSpeed + (ObstacleSpawner.ObstacleSpeed * speedIncreasePercentage);
+
+        ObstacleSpawner.ModifyObstacleSpeed(newSpeed);
 
         spawner1.NewRoundBehavior();
         spawner2.NewRoundBehavior();

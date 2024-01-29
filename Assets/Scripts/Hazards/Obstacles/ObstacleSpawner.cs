@@ -20,10 +20,10 @@ public class ObstacleSpawner : MonoBehaviour
 
     private void Start()
     {
-        AleatorizarListas();
+        RandomizeObstacleList();
         DefaultRoundBehavior();
     }
-    private void AleatorizarListas()
+    private void RandomizeObstacleList()
     {
         System.Random rnd = new System.Random();
 
@@ -51,6 +51,11 @@ public class ObstacleSpawner : MonoBehaviour
             poolIndex = Random.Range(0, obstacles.Count);
         }
         return obstacles[poolIndex];
+    }
+
+    public static void ModifyObstacleSpeed(float newSpeed)
+    {
+        obstacleSpeed = newSpeed;
     }
 
     public void NewRoundBehavior()

@@ -125,8 +125,7 @@ public class PlayerController : MonoBehaviour
             //Invoke("EndGame", 1.2f);
         }
         if (hit.gameObject.tag == "Obstacle(Small)")
-        {
-            
+        {            
             isDrunkWalk = true;
             //playerSpeed -= reduceSpeedFactor;
             Debug.LogError("Small");
@@ -139,7 +138,7 @@ public class PlayerController : MonoBehaviour
     }
     
 
-    private void ToggleRaddoll(bool bisAnimating)
+    public void ToggleRaddoll(bool bisAnimating)
     {
         Debug.Log("Toggle Radboll");
         canMove = bisAnimating;

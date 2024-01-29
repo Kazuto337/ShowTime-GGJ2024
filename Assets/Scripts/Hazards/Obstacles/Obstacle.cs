@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public enum ObstacleType
 {
@@ -12,18 +13,29 @@ public enum ObstacleType
 [RequireComponent(typeof(Rigidbody))]
 public class Obstacle : MonoBehaviour
 {
+    [SerializeField] UnityEvent onPlayerCollision;
+
     [SerializeField] float speed;
-    Vector3 initialPosition;
+    Transform initialTransform;
     private bool usable;
     [SerializeField] ObstacleType type;
+    Collider _collider;
 
     public bool Usable { get => usable;}
     public ObstacleType Type { get => type;}
     public float Speed { get => speed;}
 
-    private void Start()
+    private void Awake()
     {
-        initialPosition = transform.position;
+        initialTransform = transform;
+        _collider = GetComponent<BoxCollider>();
+    }
+
+    private void OnEnable()
+    {
+        _collider.enabled = true;
+        transform.position = initialTransform.position;
+        transform.rotation = initialTransform.rotation;
     }
 
     private void Update()
@@ -50,7 +62,15 @@ public class Obstacle : MonoBehaviour
         if (other.gameObject.CompareTag("Boundary"))
         {
             gameObject.SetActive(false);
-            transform.position = initialPosition;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            _collider.enabled = false;
+            onPlayerCollision.Invoke();
         }
     }
 
