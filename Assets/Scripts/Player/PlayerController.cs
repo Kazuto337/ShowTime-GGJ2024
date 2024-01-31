@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class PlayerController : MonoBehaviour
 {
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKey("c")) ToggleRaddoll(true);
 
         #region checking ground
+        //fmod
         bool groundedPlayer = controller.isGrounded;
         if (groundedPlayer) groundedTimer = 0.2f;
         if (groundedTimer > 0) groundedTimer -= Time.deltaTime;
@@ -59,6 +61,7 @@ public class PlayerController : MonoBehaviour
 
         if (vMovement > 0 && canMove)
         {
+            //fmod walk
             move = new Vector3(hMovement, 0, -vMovement);
             animator.SetFloat("ZSpeed", vMovement);
             animator.SetBool("Drunk", isDrunkWalk);
@@ -68,12 +71,13 @@ public class PlayerController : MonoBehaviour
         else if (groundedTimer > 0)
         {
             move = new Vector3(hMovement, 0, bckdMove);
-
+            //quieto
             animator.SetFloat("ZSpeed", 0);
             animator.SetFloat("XSpeed", Mathf.Abs(hMovement));
         }
         else
         {
+            //quieto
             move = new Vector3(0, 0, 0);
             animator.SetFloat("ZSpeed", 0);
             animator.SetFloat("XSpeed", 0);
@@ -123,17 +127,19 @@ public class PlayerController : MonoBehaviour
             Debug.LogError("Big");
             ToggleRaddoll(false);
             //Invoke("EndGame", 1.2f);
+            //fmod major hit
         }
         if (hit.gameObject.tag == "Obstacle(Small)")
         {            
             isDrunkWalk = true;
             //playerSpeed -= reduceSpeedFactor;
             Debug.LogError("Small");
+            // fmod minor hit
         }
         if (hit.gameObject.tag == "DeadZone")
         {
             EndGame();
-            
+            //fmod swamp
         }
     }
     
