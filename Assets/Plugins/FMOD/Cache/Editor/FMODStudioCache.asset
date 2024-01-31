@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/FmodProject/ggj2024/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638422295227984804
+  lastModified: 638422536138651422
   FileSizes:
   - Name: Desktop
-    Value: 852
+    Value: 904
   Exists: 1
 --- !u!114 &-8337276775748127999
 MonoBehaviour:
@@ -101,6 +101,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 52897
+--- !u!114 &-3333991822791418218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/Metal_step
+  m_EditorClassIdentifier: 
+  Path: event:/Metal_step
+  Guid:
+    Data1: -1730406366
+    Data2: 1142489558
+    Data3: -315465326
+    Data4: 132095955
+  Banks:
+  - {fileID: 2173878673001509703}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 574
 --- !u!114 &-2289456652523989291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,12 +174,13 @@ MonoBehaviour:
   - {fileID: -4609116732174718908}
   - {fileID: -2289456652523989291}
   - {fileID: -8337276775748127999}
+  - {fileID: -3333991822791418218}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2173878673001509703}
   StringsBanks:
   - {fileID: -8902526133352801832}
-  cacheTime: 638422295227984804
+  cacheTime: 638422536138651422
   cacheVersion: 131616
 --- !u!114 &2173878673001509703
 MonoBehaviour:
@@ -169,10 +197,10 @@ MonoBehaviour:
   Path: Assets/FmodProject/ggj2024/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638422295227974991
+  lastModified: 638422536138541493
   FileSizes:
   - Name: Desktop
-    Value: 1325472
+    Value: 1332608
   Exists: 1
 --- !u!114 &2253822639591782034
 MonoBehaviour:

@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float respawn = 30f;
     Rigidbody[] rigibodies;
     bool bIsRagDoll = false;
+    private FMOD.Studio.EventInstance instance;
 
     //movement
     [SerializeField] private CharacterController controller;
@@ -62,6 +63,7 @@ public class PlayerController : MonoBehaviour
         if (vMovement > 0 && canMove)
         {
             //fmod walk
+            instance = FMODUnity.RuntimeManager.CreateInstance("event:/metal_step");
             move = new Vector3(hMovement, 0, -vMovement);
             animator.SetFloat("ZSpeed", vMovement);
             animator.SetBool("Drunk", isDrunkWalk);
