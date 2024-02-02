@@ -62,9 +62,8 @@ public class ObstaclesSpawningManager : MonoBehaviour
     }
     private void NewRoundSpawnersBehavior()
     {
-        float newSpeed = ObstacleSpawner.ObstacleSpeed + (ObstacleSpawner.ObstacleSpeed * speedIncreasePercentage);
-
-        ObstacleSpawner.ModifyObstacleSpeed(newSpeed);
+        float newSpeed = ConveyerBelt.speed + (ConveyerBelt.speed * speedIncreasePercentage);
+        ConveyerBelt.ModifySpeed(newSpeed);
 
         spawner1.NewRoundBehavior();
         spawner2.NewRoundBehavior();
