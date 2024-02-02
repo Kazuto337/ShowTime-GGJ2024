@@ -55,7 +55,6 @@ public class PlayerController : MonoBehaviour
         Vector3 move;
         float vMovement = Input.GetAxis("Vertical");
         float hMovement = Input.GetAxis("Horizontal");
-        Debug.Log(vMovement);
 
         if (vMovement > 0 && canMove)
         {
@@ -110,10 +109,6 @@ public class PlayerController : MonoBehaviour
 
         // call .Move() once only
         controller.Move(move * Time.deltaTime);
-
-
-
-
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
@@ -135,12 +130,10 @@ public class PlayerController : MonoBehaviour
             EndGame();
             
         }
-    }
-    
+    }    
 
     public void ToggleRaddoll(bool bisAnimating)
     {
-        Debug.Log("Toggle Radboll");
         canMove = bisAnimating;
         bIsRagDoll = !bIsRagDoll;
 
@@ -155,7 +148,6 @@ public class PlayerController : MonoBehaviour
         if (bisAnimating)
         {
             //animator.SetTrigger("Run");
-            Debug.Log("Toggle RadbollIs runing I guess");
 
         }
 

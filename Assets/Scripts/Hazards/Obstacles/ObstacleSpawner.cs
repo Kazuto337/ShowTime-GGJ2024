@@ -5,16 +5,13 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     [SerializeField] List<GameObject> obstacles;
-    static float obstacleSpeed;
 
-    public static float ObstacleSpeed { get => obstacleSpeed; set => obstacleSpeed = value; }
 
     private void Awake()
     {
-        obstacleSpeed = 5;
         foreach (GameObject item in obstacles)
         {
-            item.GetComponent<Obstacle>().SetSpeed(obstacleSpeed);
+            item.GetComponent<Obstacle>().SetSpeed(ConveyerBelt.speed);
         }
     }
 
@@ -53,16 +50,11 @@ public class ObstacleSpawner : MonoBehaviour
         return obstacles[poolIndex];
     }
 
-    public static void ModifyObstacleSpeed(float newSpeed)
-    {
-        obstacleSpeed = newSpeed;
-    }
-
     public void NewRoundBehavior()
     {
         foreach (GameObject item in obstacles)
         {
-            item.GetComponent<Obstacle>().SetSpeed(obstacleSpeed);
+            item.GetComponent<Obstacle>().SetSpeed(ConveyerBelt.speed);
         }
 
         GameManager gameManager = GameManager.instance;

@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    [Header("GameEvents"), Space(35)]
+    public UnityEvent OnNewRound;
 
     [Header("GameProperties")]
     private int round;
@@ -20,6 +24,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Managers"), Space(15f)]    
     [SerializeField] ObstaclesSpawningManager obstaclesSpawningManager;
+
+    [Header("GameObjects")]
+    [SerializeField] GameObject player;
     public int Round { get => round; }
 
 
@@ -55,7 +62,7 @@ public class GameManager : MonoBehaviour
     private void IncreaseRound()
     {
         round++;
-        obstaclesSpawningManager.NewRoundBehavior();
+        OnNewRound.Invoke();
     }
     public void GameOver()
     {
@@ -89,5 +96,12 @@ public class GameManager : MonoBehaviour
     public void SaveScore()
     {
         SaveSystem.SaveHighScore(distanceTraveled);
+    }
+
+    public Vector2 GetPlayerPosition()
+    {
+        print("GM playerPosition = " + player.transform.position);
+        Vector2 _return = new Vector2(player.transform.position.x , player.transform.position.z);
+        return _return;
     }
 }

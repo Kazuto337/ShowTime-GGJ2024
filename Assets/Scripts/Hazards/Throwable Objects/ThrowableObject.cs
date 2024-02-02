@@ -6,8 +6,7 @@ using UnityEngine;
 public class ThrowableObject : ScriptableObject
 {
     [SerializeField] float verticalSpeed;
-    [SerializeField] float timeBeforeFalling;
+    [SerializeField] float throwingTime;
 
     public float VerticalSpeed { get => verticalSpeed;}
-    public float TimeBeforeFalling { get => timeBeforeFalling;}
 }
