@@ -319,7 +319,7 @@ MonoBehaviour:
   sourceProjectPath: Assets/FmodProject/ggj2024/ggj2024.fspro
   sourceBankPath: Assets/FmodProject/ggj2024/Build
   sourceBankPathUnformatted: 
-  BankRefreshCooldown: 5
+  BankRefreshCooldown: 1
   ShowBankRefreshWindow: 1
   AutomaticEventLoading: 1
   BankLoadType: 0

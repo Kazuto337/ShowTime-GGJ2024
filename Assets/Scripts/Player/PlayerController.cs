@@ -9,7 +9,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float respawn = 30f;
     Rigidbody[] rigibodies;
     bool bIsRagDoll = false;
-    private FMOD.Studio.EventInstance instance;
+    private FMOD.Studio.EventInstance foosteps;
 
     //movement
     [SerializeField] private CharacterController controller;
@@ -30,14 +30,24 @@ public class PlayerController : MonoBehaviour
     [Header("To set different behaviors")]
     private bool isDrunkWalk = false;
     private bool canMove = true;
+    public bool isWalking = false;
 
     private float jumpHeight = 1.0f;
     private float gravityValue = 9.81f;
+
+    [SerializeField] EventReference FootstepEvent;
+    [SerializeField] EventReference hitEvent;
+    [SerializeField] EventReference laughEvent;
+    [SerializeField] EventReference endGameEvent;
+    [SerializeField] float rate;
+    [SerializeField] GameObject player;
+    float time;
 
     private void Start()
     {
         rigibodies = GetComponentsInChildren<Rigidbody>();
         ToggleRaddoll(true);
+
 
     }
     private void Update()
@@ -60,10 +70,27 @@ public class PlayerController : MonoBehaviour
         float hMovement = Input.GetAxis("Horizontal");
         Debug.Log(vMovement);
 
+        if (vMovement != 0 || hMovement != 0)
+        {
+            isWalking = true;
+        }
+        else isWalking = false;
+
+        time += Time.deltaTime;
+        if (isWalking && canMove)
+        {
+            if (time >= rate)
+            {
+                PlayFootStep();
+                time = 0;
+            }
+        }
+
         if (vMovement > 0 && canMove)
         {
             //fmod walk
-            instance = FMODUnity.RuntimeManager.CreateInstance("event:/metal_step");
+            
+
             move = new Vector3(hMovement, 0, -vMovement);
             animator.SetFloat("ZSpeed", vMovement);
             animator.SetBool("Drunk", isDrunkWalk);
@@ -128,7 +155,8 @@ public class PlayerController : MonoBehaviour
         {
             Debug.LogError("Big");
             ToggleRaddoll(false);
-            //Invoke("EndGame", 1.2f);
+            FMODUnity.RuntimeManager.PlayOneShot(hitEvent, transform.position);
+            FMODUnity.RuntimeManager.PlayOneShot(laughEvent, transform.position);
             //fmod major hit
         }
         if (hit.gameObject.tag == "Obstacle(Small)")
@@ -136,11 +164,15 @@ public class PlayerController : MonoBehaviour
             isDrunkWalk = true;
             //playerSpeed -= reduceSpeedFactor;
             Debug.LogError("Small");
+            FMODUnity.RuntimeManager.PlayOneShot(hitEvent, transform.position);
+            FMODUnity.RuntimeManager.PlayOneShot(laughEvent, transform.position);
+
             // fmod minor hit
         }
         if (hit.gameObject.tag == "DeadZone")
         {
             EndGame();
+            FMODUnity.RuntimeManager.PlayOneShot(endGameEvent, transform.position);
             //fmod swamp
         }
     }
@@ -172,12 +204,18 @@ public class PlayerController : MonoBehaviour
         Invoke("ReactivateCharacterController", .6f);
     }
 
+    public void PlayFootStep()
+    {
+        RuntimeManager.PlayOneShotAttached(FootstepEvent, player);
+    }
+
     private void ReactivateCharacterController()
     {
         controller.enabled = true;
     }
     private void EndGame()
     {
+        FMODUnity.RuntimeManager.PlayOneShot(endGameEvent, transform.position);
         GameManager.instance.GameOver();
         Debug.LogError("Game has ended");
     }

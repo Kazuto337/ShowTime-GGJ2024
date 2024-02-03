@@ -2404,6 +2404,13 @@ MonoBehaviour:
   newHighScoreTXT: {fileID: 74928401}
   obtainedScoreTXT: {fileID: 230638823}
   obstaclesSpawningManager: {fileID: 1726302838}
+  laughEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!4 &346050063
 Transform:
   m_ObjectHideFlags: 0
@@ -5487,6 +5494,30 @@ MonoBehaviour:
   bckdMove: 1
   bckdMoveNormal: 1
   bckdMoveRagDoll: 2
+  isWalking: 0
+  FootstepEvent:
+    Guid:
+      Data1: 188459632
+      Data2: 1128057049
+      Data3: -359127893
+      Data4: -1256516143
+    Path: event:/Metal_step
+  hitEvent:
+    Guid:
+      Data1: -402171307
+      Data2: 1214848682
+      Data3: -1994735713
+      Data4: 569248560
+    Path: event:/hit_1
+  laughEvent:
+    Guid:
+      Data1: -1188727497
+      Data2: 1083639988
+      Data3: -1483306820
+      Data4: -562546811
+    Path: event:/people_laugh
+  rate: 0.4
+  player: {fileID: 1683306}
 --- !u!143 &1147992381
 CharacterController:
   m_ObjectHideFlags: 0
@@ -8397,6 +8428,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2050965331}
   - component: {fileID: 2050965333}
+  - component: {fileID: 2050965334}
   - component: {fileID: 2050965332}
   m_Layer: 0
   m_Name: AudioManager
@@ -8458,6 +8490,37 @@ MonoBehaviour:
       Data3: -816886900
       Data4: 1486737176
     Path: event:/Gameplay Theme
+  Event: 
+  PlayEvent: 1
+  StopEvent: 2
+  AllowFadeout: 1
+  TriggerOnce: 0
+  Preload: 0
+  AllowNonRigidbodyDoppler: 0
+  Params: []
+  OverrideAttenuation: 0
+  OverrideMinDistance: 1
+  OverrideMaxDistance: 20
+--- !u!114 &2050965334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050965328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollisionTag: 
+  EventReference:
+    Guid:
+      Data1: 413331258
+      Data2: 1142326956
+      Data3: -440875126
+      Data4: 199083943
+    Path: event:/ambience_crowd
   Event: 
   PlayEvent: 1
   StopEvent: 2

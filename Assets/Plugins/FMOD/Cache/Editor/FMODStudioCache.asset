@@ -15,10 +15,10 @@ MonoBehaviour:
   Path: Assets/FmodProject/ggj2024/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638422536138651422
+  lastModified: 638425089829886853
   FileSizes:
   - Name: Desktop
-    Value: 904
+    Value: 1034
   Exists: 1
 --- !u!114 &-8337276775748127999
 MonoBehaviour:
@@ -34,19 +34,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/hit_1
   Guid:
-    Data1: 1702479001
-    Data2: 1269461817
-    Data3: -473473625
-    Data4: 1130563668
+    Data1: -402171307
+    Data2: 1214848682
+    Data3: -1994735713
+    Data4: 569248560
   Banks:
   - {fileID: 2173878673001509703}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 600
+  Length: 0
 --- !u!114 &-4912210926611492967
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,6 +101,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 52897
+--- !u!114 &-3894574122446934626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/people_laugh
+  m_EditorClassIdentifier: 
+  Path: event:/people_laugh
+  Guid:
+    Data1: -1188727497
+    Data2: 1083639988
+    Data3: -1483306820
+    Data4: -562546811
+  Banks:
+  - {fileID: 2173878673001509703}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 2690
 --- !u!114 &-3333991822791418218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,19 +142,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: event:/Metal_step
   Guid:
-    Data1: -1730406366
-    Data2: 1142489558
-    Data3: -315465326
-    Data4: 132095955
+    Data1: 188459632
+    Data2: 1128057049
+    Data3: -359127893
+    Data4: -1256516143
   Banks:
   - {fileID: 2173878673001509703}
   IsStream: 0
-  Is3D: 0
+  Is3D: 1
   IsOneShot: 1
   Parameters: []
   MinDistance: 1
   MaxDistance: 20
-  Length: 574
+  Length: 0
 --- !u!114 &-2289456652523989291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,13 +202,43 @@ MonoBehaviour:
   - {fileID: -2289456652523989291}
   - {fileID: -8337276775748127999}
   - {fileID: -3333991822791418218}
+  - {fileID: -3894574122446934626}
+  - {fileID: 5316561222928235144}
+  - {fileID: 1078047206952231384}
   EditorParameters: []
   MasterBanks:
   - {fileID: 2173878673001509703}
   StringsBanks:
   - {fileID: -8902526133352801832}
-  cacheTime: 638422536138651422
+  cacheTime: 638425089829886853
   cacheVersion: 131616
+--- !u!114 &1078047206952231384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/swamp_fall
+  m_EditorClassIdentifier: 
+  Path: event:/swamp_fall
+  Guid:
+    Data1: 1239437082
+    Data2: 1121793762
+    Data3: -1437358918
+    Data4: -1235037248
+  Banks:
+  - {fileID: 2173878673001509703}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1488
 --- !u!114 &2173878673001509703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,10 +254,10 @@ MonoBehaviour:
   Path: Assets/FmodProject/ggj2024/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638422536138541493
+  lastModified: 638425089829856869
   FileSizes:
   - Name: Desktop
-    Value: 1332608
+    Value: 1511168
   Exists: 1
 --- !u!114 &2253822639591782034
 MonoBehaviour:
@@ -222,6 +279,33 @@ MonoBehaviour:
   - Name: 
     Value: 760
   Exists: 1
+--- !u!114 &5316561222928235144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/ambience_crowd
+  m_EditorClassIdentifier: 
+  Path: event:/ambience_crowd
+  Guid:
+    Data1: 413331258
+    Data2: 1142326956
+    Data3: -440875126
+    Data4: 199083943
+  Banks:
+  - {fileID: 2173878673001509703}
+  IsStream: 0
+  Is3D: 1
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 9900
 --- !u!114 &8329012590685583543
 MonoBehaviour:
   m_ObjectHideFlags: 0

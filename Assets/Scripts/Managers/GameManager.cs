@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Collections;
 using UnityEngine;
+using FMODUnity;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class GameManager : MonoBehaviour
 
     [Header("Managers"), Space(15f)]    
     [SerializeField] ObstaclesSpawningManager obstaclesSpawningManager;
+    
+    [Header("FMOD Sounds"), Space(15f)]
+    [SerializeField] EventReference laughEvent;
     public int Round { get => round; }
 
 
