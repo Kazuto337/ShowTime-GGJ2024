@@ -5516,6 +5516,13 @@ MonoBehaviour:
       Data3: -1483306820
       Data4: -562546811
     Path: event:/people_laugh
+  endGameEvent:
+    Guid:
+      Data1: 1239437082
+      Data2: 1121793762
+      Data3: -1437358918
+      Data4: -1235037248
+    Path: event:/swamp_fall
   rate: 0.4
   player: {fileID: 1683306}
 --- !u!143 &1147992381
