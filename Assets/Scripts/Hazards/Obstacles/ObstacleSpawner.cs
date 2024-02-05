@@ -49,43 +49,29 @@ public class ObstacleSpawner : MonoBehaviour
         }
         return obstacles[poolIndex];
     }
-
     public void NewRoundBehavior()
     {
         foreach (GameObject item in obstacles)
         {
             item.GetComponent<Obstacle>().SetSpeed(ConveyerBelt.speed);
         }
-
-        GameManager gameManager = GameManager.instance;
-
-        switch (gameManager.Round)
+    }
+    public void NewRoundBehavior(int currentRound)
+    {
+        switch (currentRound)
         {
             case 1:
-                FirstRoundBehavior();
+                ActivateSmallObstacles();
                 break;
 
             case 2:
-                SecondRoundBehavior();
-                break;
-
-            case 3:
-                ThirdRoundBehavior();
-                break;
-
-            case 4:
-                FourthRoundBehavior();
-                break;
-
-            case 5:
-                FithRoundBehavior();
+                ActivateTallObstacles();
                 break;
 
             default:
-                break;
+                return;
         }
     }
-
     private void DefaultRoundBehavior()
     {
         foreach (GameObject item in obstacles)
@@ -103,7 +89,7 @@ public class ObstacleSpawner : MonoBehaviour
             }
         }
     }
-    private void FirstRoundBehavior()
+    private void ActivateSmallObstacles()
     {
         foreach (GameObject item in obstacles)
         {
@@ -121,7 +107,7 @@ public class ObstacleSpawner : MonoBehaviour
             }
         }
     }
-    private void SecondRoundBehavior()
+    private void ActivateTallObstacles()
     {
         foreach (GameObject item in obstacles)
         {
@@ -131,15 +117,4 @@ public class ObstacleSpawner : MonoBehaviour
             }
         }
     }
-    private void ThirdRoundBehavior()
-    {
-    }
-    private void FourthRoundBehavior()
-    {
-    }
-    private void FithRoundBehavior()
-    {
-    }
-
-
 }

@@ -53,20 +53,31 @@ public class ObstaclesSpawningManager : MonoBehaviour
     public void NewRoundBehavior()
     {
         speedIncreasePercentage += 0.05f;
-        NewRoundSpawnersBehavior();
+        SpawnersNewRoundBehavior();
         DecreaseSpawningRate();
     }
     private void DecreaseSpawningRate()
     {
         spawningActivationRate -= spawningActivationRate * 0.10f;
     }
-    private void NewRoundSpawnersBehavior()
+    private void SpawnersNewRoundBehavior()
     {
+        int currentRound = GameManager.instance.Round;
+
         float newSpeed = ConveyerBelt.speed + (ConveyerBelt.speed * speedIncreasePercentage);
         ConveyerBelt.ModifySpeed(newSpeed);
 
-        spawner1.NewRoundBehavior();
-        spawner2.NewRoundBehavior();
-        spawner3.NewRoundBehavior();
+        if (currentRound > 2)
+        {
+            spawner1.NewRoundBehavior();
+            spawner2.NewRoundBehavior();
+            spawner3.NewRoundBehavior();
+
+            return;
+        }    
+
+        spawner1.NewRoundBehavior(currentRound);
+        spawner2.NewRoundBehavior(currentRound);
+        spawner3.NewRoundBehavior(currentRound);
     }
 }

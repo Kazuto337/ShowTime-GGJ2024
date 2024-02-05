@@ -15,15 +15,12 @@ public class GameManager : MonoBehaviour
     [Header("GameProperties")]
     private int round;
     [SerializeField] float distanceRequiredForRound;
-    public float distanceTraveled , lastDistanceChackpoint;
+    public float distanceTraveled , lastDistanceCheckpoint;
 
     [Header("UI Objects" ), Space(15f)]
     [SerializeField] HighScoreBrehavior scoreBrehavior;
     [SerializeField] GameObject gameOverPanel , newHighScoreView , obtainedScore;
     [SerializeField] TMP_Text scoreText , newHighScoreTXT, obtainedScoreTXT;
-
-    [Header("Managers"), Space(15f)]    
-    [SerializeField] ObstaclesSpawningManager obstaclesSpawningManager;
 
     [Header("GameObjects")]
     [SerializeField] GameObject player;
@@ -46,17 +43,21 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        UpdateScore();
+    }
+
+    public void UpdateScore()
+    {
         distanceTraveled += Time.deltaTime;
         scoreText.text = distanceTraveled.ToString("F2") + " mts";
-        if (lastDistanceChackpoint < distanceRequiredForRound)
+        if (lastDistanceCheckpoint < distanceRequiredForRound)
         {
-            lastDistanceChackpoint = distanceTraveled;
+            lastDistanceCheckpoint = distanceTraveled;
+            return;
         }
-        else
-        {
-            distanceRequiredForRound += distanceRequiredForRound;
-            IncreaseRound();
-        }
+
+        distanceRequiredForRound += distanceRequiredForRound;
+        IncreaseRound();
     }
 
     private void IncreaseRound()
@@ -81,6 +82,7 @@ public class GameManager : MonoBehaviour
         PauseGame();
     }
 
+    #region PauseSettings
     public void PauseGame()
     {
         Time.timeScale = 0;
@@ -96,7 +98,8 @@ public class GameManager : MonoBehaviour
     public void SaveScore()
     {
         SaveSystem.SaveHighScore(distanceTraveled);
-    }
+    } 
+    #endregion
 
     public Vector2 GetPlayerPosition()
     {

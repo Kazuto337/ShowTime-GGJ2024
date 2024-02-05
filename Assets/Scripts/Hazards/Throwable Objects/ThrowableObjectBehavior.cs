@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class ThrowableObjectBehavior : MonoBehaviour
 {
+    [Header("Object Data") , Space(25f)]
     [SerializeField] ThrowableObject objectData;
 
-    float verticalSpeed, throwingTime , horizontalSpeed;
-    Animator animator;
-    Rigidbody rgdb;
+    [Header("Movement Properties")]
     Vector3 initialPosition;
-    public float ThrowingTime { get => throwingTime; set => throwingTime = value; }
+    Rigidbody rgdb;
+    float verticalSpeed, throwingTime, horizontalSpeed;
+    bool canThrow;
+    bool onFloor;
 
-    private bool onFloor;
+    Animator animator;
+
+    public float ThrowingTime { get => throwingTime; set => throwingTime = value; }
+    public bool CanThrow { get => canThrow; }
 
     private void Awake()
     {
@@ -40,12 +45,20 @@ public class ThrowableObjectBehavior : MonoBehaviour
 
             transform.position = new Vector3(currentPosition.x, currentPosition.y, newZAxisPosition);
         }
-
     }
 
     public void UpdateSpeed()
     {
         horizontalSpeed = ConveyerBelt.speed;
+    }
+
+    /// <summary>
+    /// Modify Throwable Status
+    /// </summary>
+    /// <param name="newValue"></param>
+    public void ModifyThrowStatus(bool newValue)
+    {
+        canThrow = newValue;
     }
 
     [ContextMenu("Throw Object")]
