@@ -12,6 +12,7 @@ TagManager:
   - DeadZone
   - Floor
   - Endline
+  - ThrowableObject
   layers:
   - Default
   - TransparentFX

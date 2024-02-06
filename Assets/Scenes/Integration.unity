@@ -1592,7 +1592,7 @@ Camera:
   m_FOVAxisMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
-  m_FocalLength: 50
+  m_FocalLength: 14.547951
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -1601,7 +1601,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.030064
+  field of view: 58.186615
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1627,7 +1627,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 51533216}
   m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 7.98, z: -10.17}
+  m_LocalPosition: {x: 0, y: 8, z: -11}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2313,7 +2313,7 @@ GameObject:
   - component: {fileID: 116397048}
   m_Layer: 0
   m_Name: Honk horn (5)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2878,7 +2878,7 @@ GameObject:
   - component: {fileID: 183531137}
   m_Layer: 0
   m_Name: Bottle (5)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3124,7 +3124,7 @@ GameObject:
   - component: {fileID: 220218389}
   m_Layer: 0
   m_Name: Pot (3)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3827,7 +3827,7 @@ GameObject:
   - component: {fileID: 292958618}
   m_Layer: 0
   m_Name: Anvil (2)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4238,7 +4238,7 @@ GameObject:
   - component: {fileID: 321932103}
   m_Layer: 0
   m_Name: Ball (5)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4974,7 +4974,7 @@ GameObject:
   - component: {fileID: 372542702}
   m_Layer: 0
   m_Name: Pot (6)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5434,7 +5434,7 @@ GameObject:
   - component: {fileID: 444241108}
   m_Layer: 0
   m_Name: Tomato (5)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6252,7 +6252,7 @@ GameObject:
   - component: {fileID: 575832704}
   m_Layer: 0
   m_Name: Pot (2)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6401,7 +6401,7 @@ GameObject:
   - component: {fileID: 586101667}
   m_Layer: 0
   m_Name: Anvil (1)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7403,7 +7403,7 @@ GameObject:
   - component: {fileID: 654378614}
   m_Layer: 0
   m_Name: Tomato (2)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7541,7 +7541,7 @@ GameObject:
   - component: {fileID: 672056645}
   m_Layer: 0
   m_Name: Tomato (4)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8054,7 +8054,7 @@ GameObject:
   - component: {fileID: 742522263}
   m_Layer: 0
   m_Name: Pot (5)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8387,7 +8387,7 @@ GameObject:
   - component: {fileID: 778480373}
   m_Layer: 0
   m_Name: Pot (4)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9093,7 +9093,7 @@ GameObject:
   - component: {fileID: 858051461}
   m_Layer: 0
   m_Name: Anvil (4)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9564,7 +9564,7 @@ GameObject:
   - component: {fileID: 972324703}
   m_Layer: 0
   m_Name: Anvil (5)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9861,7 +9861,7 @@ GameObject:
   - component: {fileID: 1058907192}
   m_Layer: 0
   m_Name: Bottle (4)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10423,7 +10423,7 @@ GameObject:
   - component: {fileID: 1177077380}
   m_Layer: 0
   m_Name: Tomato (1)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10561,7 +10561,7 @@ GameObject:
   - component: {fileID: 1190647068}
   m_Layer: 0
   m_Name: Ball (3)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11268,7 +11268,7 @@ GameObject:
   - component: {fileID: 1341587035}
   m_Layer: 0
   m_Name: Honk horn (2)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11732,6 +11732,7 @@ Transform:
   - {fileID: 2050965331}
   - {fileID: 706716265}
   - {fileID: 606857750}
+  - {fileID: 1681110348}
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11751,7 +11752,7 @@ GameObject:
   - component: {fileID: 1402559253}
   m_Layer: 0
   m_Name: Ball (2)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11888,7 +11889,7 @@ GameObject:
   - component: {fileID: 1405600206}
   m_Layer: 0
   m_Name: Tomato (3)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12026,7 +12027,7 @@ GameObject:
   - component: {fileID: 1406843947}
   m_Layer: 0
   m_Name: Honk horn (3)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12173,7 +12174,7 @@ GameObject:
   - component: {fileID: 1413367099}
   m_Layer: 0
   m_Name: Ball (6)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12365,7 +12366,7 @@ GameObject:
   - component: {fileID: 1474275485}
   m_Layer: 0
   m_Name: Tomato (6)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13056,7 +13057,7 @@ GameObject:
   - component: {fileID: 1526059841}
   m_Layer: 0
   m_Name: Bottle (2)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13515,7 +13516,7 @@ GameObject:
   - component: {fileID: 1556617085}
   m_Layer: 0
   m_Name: Anvil (3)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13677,7 +13678,7 @@ GameObject:
   - component: {fileID: 1578510064}
   m_Layer: 0
   m_Name: Honk horn (6)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14004,7 +14005,7 @@ GameObject:
   - component: {fileID: 1599018226}
   m_Layer: 0
   m_Name: Honk horn (1)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14504,7 +14505,7 @@ GameObject:
   - component: {fileID: 1626634219}
   m_Layer: 0
   m_Name: Honk horn (4)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14990,6 +14991,65 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d37a54b6cebc9bb49a2ba0bbf9463669, type: 3}
+--- !u!1 &1681110347
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1681110348}
+  - component: {fileID: 1681110349}
+  m_Layer: 0
+  m_Name: GameEvents
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1681110348
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681110347}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1395103040}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1681110349
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681110347}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fc7577e35ceb2c545b1e3a5710626683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  OnPlayerHitted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1147992380}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: ToggleRaddoll
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1686908878 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4401237673869123130, guid: 4dfb391f2ad59c74d9729dced82fb39f, type: 3}
@@ -15018,7 +15078,7 @@ GameObject:
   - component: {fileID: 1698565474}
   m_Layer: 0
   m_Name: Anvil (6)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15475,7 +15535,7 @@ GameObject:
   - component: {fileID: 1762263515}
   m_Layer: 0
   m_Name: Bottle (1)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16194,7 +16254,7 @@ GameObject:
   - component: {fileID: 1884458538}
   m_Layer: 0
   m_Name: Pot (1)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16428,7 +16488,7 @@ GameObject:
   - component: {fileID: 1890365747}
   m_Layer: 0
   m_Name: Bottle (3)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17283,7 +17343,7 @@ GameObject:
   - component: {fileID: 2061558335}
   m_Layer: 0
   m_Name: Ball (4)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17993,7 +18053,7 @@ GameObject:
   - component: {fileID: 2132087922}
   m_Layer: 0
   m_Name: Ball (1)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18223,7 +18283,7 @@ GameObject:
   - component: {fileID: 2135917986}
   m_Layer: 0
   m_Name: Bottle (6)
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18541,7 +18601,7 @@ GameObject:
   - component: {fileID: 3469287837320351799}
   m_Layer: 0
   m_Name: Anvil
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18562,7 +18622,7 @@ GameObject:
   - component: {fileID: 3731878167955838309}
   m_Layer: 0
   m_Name: Tomato
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18684,7 +18744,7 @@ GameObject:
   - component: {fileID: 2624814316147264487}
   m_Layer: 0
   m_Name: Honk horn
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18890,7 +18950,7 @@ GameObject:
   - component: {fileID: 4260411703865759398}
   m_Layer: 0
   m_Name: Ball
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19093,7 +19153,7 @@ GameObject:
   - component: {fileID: 9199665383679423281}
   m_Layer: 0
   m_Name: Bottle
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19144,7 +19204,7 @@ GameObject:
   - component: {fileID: 8793360469825459412}
   m_Layer: 0
   m_Name: Pot
-  m_TagString: Untagged
+  m_TagString: ThrowableObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
