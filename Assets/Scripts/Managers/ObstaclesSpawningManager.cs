@@ -10,8 +10,6 @@ public class ObstaclesSpawningManager : MonoBehaviour
     private float spawningTimer = 0;
     [SerializeField] ObstacleSpawner spawner1, spawner2, spawner3;
 
-    float speedIncreasePercentage;
-
     private void Start()
     {
         spawningTimer = spawningActivationRate;
@@ -50,9 +48,9 @@ public class ObstaclesSpawningManager : MonoBehaviour
         }
     }
 
+    //Invoke By GameManager
     public void NewRoundBehavior()
     {
-        speedIncreasePercentage += 0.05f;
         SpawnersNewRoundBehavior();
         DecreaseSpawningRate();
     }
@@ -63,9 +61,6 @@ public class ObstaclesSpawningManager : MonoBehaviour
     private void SpawnersNewRoundBehavior()
     {
         int currentRound = GameManager.instance.Round;
-
-        float newSpeed = ConveyerBelt.speed + (ConveyerBelt.speed * speedIncreasePercentage);
-        ConveyerBelt.ModifySpeed(newSpeed);
 
         if (currentRound > 2)
         {

@@ -5,20 +5,15 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     [SerializeField] List<GameObject> obstacles;
-
-
-    private void Awake()
-    {
-        foreach (GameObject item in obstacles)
-        {
-            item.GetComponent<Obstacle>().SetSpeed(ConveyerBelt.speed);
-        }
-    }
-
     private void Start()
     {
         RandomizeObstacleList();
         DefaultRoundBehavior();
+
+        foreach (GameObject item in obstacles)
+        {
+            item.GetComponent<Obstacle>().SetSpeed(ConveyerBelt.speed);
+        }
     }
     private void RandomizeObstacleList()
     {

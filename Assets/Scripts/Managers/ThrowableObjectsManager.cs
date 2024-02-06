@@ -5,9 +5,20 @@ using UnityEngine;
 public class ThrowableObjectsManager : MonoBehaviour
 {
     [SerializeField] List<ThrowableObjectBehavior> throwableObjects;
-    float spawnRate, spawnTimer;
+    [SerializeField , Range(0.25f , 5)]float spawnRate;
+    float spawnTimer;
+
+    bool isActive = false;
 
     private void Update()
+    {
+        if (isActive)
+        {
+            SpawnRateBehavior(); 
+        }
+    }
+
+    private void SpawnRateBehavior()
     {
         if (spawnTimer < spawnRate)
         {
@@ -45,8 +56,7 @@ public class ThrowableObjectsManager : MonoBehaviour
                     }
                 }
                 selectedObject1.ThrowObject();
-                selectedObject.ThrowObject();
-                
+                selectedObject.ThrowObject();                
                 break;
         }
     }   
@@ -66,18 +76,49 @@ public class ThrowableObjectsManager : MonoBehaviour
 
         return throwableObjects[objectIndex];
     }
-
     public void NewRoundBehavior()
     {
+        int currentRound = GameManager.instance.Round;
 
+        if (currentRound > 4)
+        {
+            spawnRate -= spawnRate * 0.10f;
+            return;
+        }        
+
+        switch (currentRound)
+        {
+            case 3:
+                isActive = true;
+                ActivateSmallObjects();
+                break;
+
+            case 4:
+                ActivateBigObjects();
+                break;
+
+            default:
+                return;
+        }
     }
-
     private void ActivateSmallObjects()
     {
-
+        foreach (ThrowableObjectBehavior item in throwableObjects)
+        {
+            if (item.GetObjectType() == ThrowableObjectType.Small)
+            {
+                item.ModifyThrowStatus(true);
+            }
+        }
     }
     private void ActivateBigObjects()
     {
-
+        foreach (ThrowableObjectBehavior item in throwableObjects)
+        {
+            if (item.GetObjectType() == ThrowableObjectType.Big)
+            {
+                item.ModifyThrowStatus(true);
+            }
+        }
     }
 }

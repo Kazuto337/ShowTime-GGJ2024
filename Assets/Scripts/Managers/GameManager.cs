@@ -9,18 +9,20 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [Header("GameEvents"), Space(35)]
+    [Header("GameEvents")]
     public UnityEvent OnNewRound;
 
-    [Header("GameProperties")]
-    private int round;
+    [Header("GameProperties"), Space(15)]
     [SerializeField] float distanceRequiredForRound;
-    public float distanceTraveled , lastDistanceCheckpoint;
+    private int round;
+    public float distanceTraveled, lastDistanceCheckpoint;
+    [SerializeField, Range(10f, 50)] float speedIncreasePercentage;
+    [SerializeField, Range(1, 10)] float percentageIncreaseIndex;
 
-    [Header("UI Objects" ), Space(15f)]
+    [Header("UI Objects"), Space(15f)]
     [SerializeField] HighScoreBrehavior scoreBrehavior;
-    [SerializeField] GameObject gameOverPanel , newHighScoreView , obtainedScore;
-    [SerializeField] TMP_Text scoreText , newHighScoreTXT, obtainedScoreTXT;
+    [SerializeField] GameObject gameOverPanel, newHighScoreView, obtainedScore;
+    [SerializeField] TMP_Text scoreText, newHighScoreTXT, obtainedScoreTXT;
 
     [Header("GameObjects")]
     [SerializeField] GameObject player;
@@ -63,7 +65,19 @@ public class GameManager : MonoBehaviour
     private void IncreaseRound()
     {
         round++;
+        IncreaseConveyerBeltSpeed();
         OnNewRound.Invoke();
+        IncreaseSpeedPercentage();
+    }
+    private void IncreaseConveyerBeltSpeed()
+    {
+        float newSpeed = ConveyerBelt.speed + (ConveyerBelt.speed * (speedIncreasePercentage / 100));
+        Debug.Log("Speed: " + newSpeed);
+        ConveyerBelt.ModifySpeed(newSpeed);
+    }
+    private void IncreaseSpeedPercentage()
+    {
+        speedIncreasePercentage += percentageIncreaseIndex;
     }
     public void GameOver()
     {
@@ -98,13 +112,13 @@ public class GameManager : MonoBehaviour
     public void SaveScore()
     {
         SaveSystem.SaveHighScore(distanceTraveled);
-    } 
+    }
     #endregion
 
     public Vector2 GetPlayerPosition()
     {
         print("GM playerPosition = " + player.transform.position);
-        Vector2 _return = new Vector2(player.transform.position.x , player.transform.position.z);
+        Vector2 _return = new Vector2(player.transform.position.x, player.transform.position.z);
         return _return;
     }
 }

@@ -11,13 +11,13 @@ public class ThrowableObjectBehavior : MonoBehaviour
     Vector3 initialPosition;
     Rigidbody rgdb;
     float verticalSpeed, throwingTime, horizontalSpeed;
-    bool canThrow;
+    bool canThrow = false;
     bool onFloor;
 
     Animator animator;
 
-    public float ThrowingTime { get => throwingTime; set => throwingTime = value; }
-    public bool CanThrow { get => canThrow; }
+    public float ThrowingTime { get => throwingTime;}
+    public bool CanThrow { get => canThrow; }    
 
     private void Awake()
     {
@@ -29,6 +29,10 @@ public class ThrowableObjectBehavior : MonoBehaviour
         rgdb = GetComponent<Rigidbody>();
 
         initialPosition = transform.position;
+    }
+    private void Start()
+    {
+        canThrow = false;
     }
 
     private void OnEnable()
@@ -80,8 +84,6 @@ public class ThrowableObjectBehavior : MonoBehaviour
             t += Time.deltaTime * verticalSpeed;
             transform.position = Vector3.Lerp(transform.position, dropingZonePosition, Mathf.Clamp(t, 0, 1));
 
-            Debug.Log(Mathf.Clamp(t, 0, 1));
-
             if (Mathf.Abs(transform.position.magnitude - dropingZonePosition.magnitude) < 0.5)
             {
                 transform.localPosition = dropingZonePosition;
@@ -127,4 +129,8 @@ public class ThrowableObjectBehavior : MonoBehaviour
         rgdb.useGravity = false;
     }
 
+    public ThrowableObjectType GetObjectType()
+    {
+        return objectData.Type;
+    }
 }

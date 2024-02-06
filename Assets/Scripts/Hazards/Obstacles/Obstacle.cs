@@ -19,21 +19,26 @@ public class Obstacle : MonoBehaviour
     Transform initialTransform;
     private bool usable;
     [SerializeField] ObstacleType type;
-    Collider _collider;
+    [SerializeField] List<Collider> _colliders;
+    [SerializeField] Rigidbody rgbd;
 
-    public bool Usable { get => usable;}
-    public ObstacleType Type { get => type;}
-    public float Speed { get => speed;}
+    public bool Usable { get => usable; }
+    public ObstacleType Type { get => type; }
+    public float Speed { get => speed; }
 
     private void Awake()
     {
         initialTransform = transform;
-        _collider = GetComponent<BoxCollider>();
     }
 
     private void OnEnable()
     {
-        _collider.enabled = true;
+        rgbd.useGravity = true;
+        foreach (Collider item in _colliders)
+        {
+            item.enabled = true;
+        }
+
         transform.position = initialTransform.position;
         transform.rotation = initialTransform.rotation;
     }
@@ -57,11 +62,25 @@ public class Obstacle : MonoBehaviour
         usable = newUsable;
     }
 
+    public void DisableColliders()
+    {
+        rgbd.useGravity = false;
+        foreach (Collider item in _colliders)
+        {
+            item.enabled = false;
+        }
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Boundary"))
         {
             gameObject.SetActive(false);
+        }
+
+        if (other.gameObject.CompareTag("Endline"))
+        {
+            rgbd.useGravity = true;
         }
     }
 
@@ -69,8 +88,7 @@ public class Obstacle : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            _collider.enabled = false;
-            onPlayerCollision.Invoke();
+            GameEvents.instance.OnPlayerHitted.Invoke();
         }
     }
 

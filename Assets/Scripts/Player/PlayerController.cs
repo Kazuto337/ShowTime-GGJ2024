@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -21,9 +22,9 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("To set different backguard velocities")]
-    [SerializeField] private float bckdMove = 1.0f;
     [SerializeField] private float bckdMoveNormal = 1.0f;
-    [SerializeField] private float bckdMoveRagDoll = 2.0f;
+    [SerializeField] private float bckdMoveRagDoll;
+    [SerializeField] private float bckdMove = 1.0f;
     [Space(2)]
     [Header("To set different behaviors")]
     private bool isDrunkWalk = false;
@@ -40,6 +41,8 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        bckdMoveRagDoll = ConveyerBelt.speed;
+
         if (Input.GetKey("v")) ToggleRaddoll(false);
         if (Input.GetKey("c")) ToggleRaddoll(true);
 
@@ -113,24 +116,29 @@ public class PlayerController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.gameObject.tag == "Obstacle(Wide)" || hit.gameObject.tag == "Obstacle(Tall)")
+        if(hit.gameObject.tag == "Obstacle(Wide)" || hit.gameObject.tag == "Obstacle(Tall)" || hit.gameObject.CompareTag("Throwable"))
         {
             Debug.LogError("Big");
-            ToggleRaddoll(false);
+            GameEvents.instance.OnPlayerHitted.Invoke();
+            hit.gameObject.GetComponent<Obstacle>().DisableColliders();
+
             //Invoke("EndGame", 1.2f);
         }
         if (hit.gameObject.tag == "Obstacle(Small)")
         {            
             isDrunkWalk = true;
-            //playerSpeed -= reduceSpeedFactor;
+            playerSpeed -= reduceSpeedFactor;
             Debug.LogError("Small");
         }
-        if (hit.gameObject.tag == "DeadZone")
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "DeadZone")
         {
             EndGame();
-            
         }
-    }    
+    }
 
     public void ToggleRaddoll(bool bisAnimating)
     {
