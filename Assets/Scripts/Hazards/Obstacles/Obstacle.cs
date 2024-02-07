@@ -20,7 +20,6 @@ public class Obstacle : MonoBehaviour
     private bool usable;
     [SerializeField] ObstacleType type;
     [SerializeField] List<Collider> _colliders;
-    [SerializeField] Rigidbody rgbd;
 
     public bool Usable { get => usable; }
     public ObstacleType Type { get => type; }
@@ -33,11 +32,7 @@ public class Obstacle : MonoBehaviour
 
     private void OnEnable()
     {
-        rgbd.useGravity = true;
-        foreach (Collider item in _colliders)
-        {
-            item.enabled = true;
-        }
+        EnableColliders();
 
         transform.position = initialTransform.position;
         transform.rotation = initialTransform.rotation;
@@ -50,7 +45,7 @@ public class Obstacle : MonoBehaviour
             Vector3 currentPosition = transform.position;
             float newZAxisPosition = currentPosition.z + speed * Time.deltaTime;
 
-            transform.position = new Vector3(currentPosition.x, currentPosition.y, newZAxisPosition);
+            transform.position = new Vector3(initialTransform.position.x, currentPosition.y, newZAxisPosition);
         }
     }
     public void SetSpeed(float newSpeed)
@@ -62,12 +57,19 @@ public class Obstacle : MonoBehaviour
         usable = newUsable;
     }
 
-    public void DisableColliders()
+    public void EnableColliders()
     {
-        rgbd.useGravity = false;
         foreach (Collider item in _colliders)
         {
-            item.enabled = false;
+            item.isTrigger = false;
+        }
+    }
+
+    public void DisableColliders()
+    {
+        foreach (Collider item in _colliders)
+        {
+            item.isTrigger = true;
         }
     }
 
@@ -77,11 +79,6 @@ public class Obstacle : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-
-        if (other.gameObject.CompareTag("Endline"))
-        {
-            rgbd.useGravity = true;
-        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -90,6 +87,11 @@ public class Obstacle : MonoBehaviour
         {
             GameEvents.instance.OnPlayerHitted.Invoke();
         }
+    }
+
+    private void OnDisable()
+    {
+        
     }
 
 }

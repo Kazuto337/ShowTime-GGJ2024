@@ -5,16 +5,35 @@ using UnityEngine;
 public class ThrowableObjectsManager : MonoBehaviour
 {
     [SerializeField] List<ThrowableObjectBehavior> throwableObjects;
-    [SerializeField , Range(0.25f , 5)]float spawnRate;
+    [SerializeField, Range(0.25f, 5)] float spawnRate;
     float spawnTimer;
 
     bool isActive = false;
 
+
+    private void Start()
+    {
+        isActive = false;
+        RandomizeObstacleList();
+    }
     private void Update()
     {
         if (isActive)
         {
-            SpawnRateBehavior(); 
+            SpawnRateBehavior();
+        }
+    }
+
+    private void RandomizeObstacleList()
+    {
+        System.Random rnd = new System.Random();
+
+        int n = throwableObjects.Count;
+        while (n > 1)
+        {
+            n--;
+            int k = rnd.Next(n + 1);
+            (throwableObjects[k], throwableObjects[n]) = (throwableObjects[n], throwableObjects[k]);
         }
     }
 
@@ -33,38 +52,64 @@ public class ThrowableObjectsManager : MonoBehaviour
 
     private void Spawn()
     {
-        int index = Random.Range(1, 2);        
+        int index = Random.Range(1, 2);
+
+        ThrowableObjectBehavior selectedObject = SelectObject();
+        ThrowableObjectBehavior selectedObject1 = SelectObject();
+
+        if (selectedObject == null)
+        {
+            return;
+        }
+
+        while (selectedObject == selectedObject1)
+        {
+            selectedObject1 = SelectObject();
+            if (selectedObject1 != selectedObject)
+            {
+                break;
+            }
+        }
 
         switch (index)
         {
             case 1:
-                SelectObject().ThrowObject();
+
+                selectedObject.ThrowObject();
+
+                Debug.Log("Throw Object: " + selectedObject.name);
                 break;
 
             case 2:
 
-                ThrowableObjectBehavior selectedObject = SelectObject();
-                ThrowableObjectBehavior selectedObject1 = null;
-
-                while(selectedObject == SelectObject())
-                {
-                    selectedObject1 = SelectObject();
-                    if (selectedObject1 != selectedObject)
-                    {
-                        selectedObject1.ThrowObject();
-                        break;
-                    }
-                }
                 selectedObject1.ThrowObject();
-                selectedObject.ThrowObject();                
+                selectedObject.ThrowObject();
+
+                Debug.Log("Throw Object: " + selectedObject.name);
+                Debug.Log("Throw Object: " + selectedObject1.name);
+
                 break;
         }
-    }   
+    }
 
     public ThrowableObjectBehavior SelectObject()
     {
-        int objectIndex = Random.Range(0, throwableObjects.Count - 1);
+        int objectsAvailable = 0;
+        foreach (ThrowableObjectBehavior item in throwableObjects)
+        {
+            if (item.CanThrow)
+            {
+                objectsAvailable++;
+            }
+        }
 
+        if (objectsAvailable < 1)
+        {
+            Debug.LogWarning("No ThrowableObjects Avalailable");
+            return null;
+        }
+
+        int objectIndex = Random.Range(0, throwableObjects.Count - 1);
         while (!throwableObjects[objectIndex].CanThrow)
         {
             objectIndex = Random.Range(0, throwableObjects.Count - 1);
@@ -84,7 +129,7 @@ public class ThrowableObjectsManager : MonoBehaviour
         {
             spawnRate -= spawnRate * 0.10f;
             return;
-        }        
+        }
 
         switch (currentRound)
         {

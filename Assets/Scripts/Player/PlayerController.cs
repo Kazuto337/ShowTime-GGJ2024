@@ -116,11 +116,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.gameObject.tag == "Obstacle(Wide)" || hit.gameObject.tag == "Obstacle(Tall)" || hit.gameObject.CompareTag("Throwable"))
+        if(hit.gameObject.tag == "Obstacle(Wide)" || hit.gameObject.tag == "Obstacle(Tall)" || hit.gameObject.CompareTag("ThrowableObject"))
         {
-            Debug.LogError("Big");
+            //Debug.LogError("Big");
             GameEvents.instance.OnPlayerHitted.Invoke();
-            hit.gameObject.GetComponent<Obstacle>().DisableColliders();
+            //hit.gameObject.GetComponent<Obstacle>().DisableColliders();
 
             //Invoke("EndGame", 1.2f);
         }

@@ -11,7 +11,7 @@ public class ThrowableObjectBehavior : MonoBehaviour
     Vector3 initialPosition;
     Rigidbody rgdb;
     float verticalSpeed, throwingTime, horizontalSpeed;
-    bool canThrow = false;
+    [SerializeField] bool canThrow;
     bool onFloor;
 
     Animator animator;
@@ -72,6 +72,7 @@ public class ThrowableObjectBehavior : MonoBehaviour
         Vector3 droppingZonePosition = new Vector3(playerPosition.x, 10, playerPosition.y);
 
         gameObject.SetActive(true);
+        canThrow = false;
 
         StartCoroutine(ThrowObjectBehavior(droppingZonePosition));
     }
@@ -109,23 +110,31 @@ public class ThrowableObjectBehavior : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Floor"))
         {
+            Debug.Log("Throwable on Floor");
+            onFloor = true;
             animator.Play("Static");
         }
-
-        if (collision.gameObject.CompareTag("Boundary"))
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Boundary"))
         {
             gameObject.SetActive(false);
+            ResetProperties();
         }
     }
 
     private void OnDisable()
     {
+        canThrow = true;
+        onFloor = false;
         ResetProperties();
     }
 
     public void ResetProperties()
     {
         transform.position = initialPosition;
+        canThrow = true;
         rgdb.useGravity = false;
     }
 
