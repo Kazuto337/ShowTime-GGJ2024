@@ -12,7 +12,7 @@ public class ThrowableObjectBehavior : MonoBehaviour
     Rigidbody rgdb;
     float verticalSpeed, throwingTime, horizontalSpeed;
     [SerializeField] bool canThrow;
-    bool onFloor;
+    [SerializeField] bool onFloor;
 
     Animator animator;
 
@@ -85,6 +85,8 @@ public class ThrowableObjectBehavior : MonoBehaviour
             t += Time.deltaTime * verticalSpeed;
             transform.position = Vector3.Lerp(transform.position, dropingZonePosition, Mathf.Clamp(t, 0, 1));
 
+            Debug.Log("Throw Object Behavior");
+
             if (Mathf.Abs(transform.position.magnitude - dropingZonePosition.magnitude) < 0.5)
             {
                 transform.localPosition = dropingZonePosition;
@@ -94,8 +96,7 @@ public class ThrowableObjectBehavior : MonoBehaviour
 
             yield return null;
         }
-        Debug.Log(Mathf.Clamp(t, 0, 1));
-        Debug.Log("(Outside) ThrowableObject postion = " + transform.position);
+        //Debug.Log("(Outside) ThrowableObject postion = " + transform.position);
         DropObject();
 
         yield return null;
@@ -103,7 +104,7 @@ public class ThrowableObjectBehavior : MonoBehaviour
 
     public void DropObject()
     {
-        rgdb.useGravity = true;
+        rgdb.isKinematic = false;
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -135,7 +136,7 @@ public class ThrowableObjectBehavior : MonoBehaviour
     {
         transform.position = initialPosition;
         canThrow = true;
-        rgdb.useGravity = false;
+        rgdb.isKinematic = true;
     }
 
     public ThrowableObjectType GetObjectType()

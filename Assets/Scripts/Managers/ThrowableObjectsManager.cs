@@ -48,6 +48,11 @@ public class ThrowableObjectsManager : MonoBehaviour
                 spawnTimer = 0;
             }
         }
+        else if (spawnTimer >= spawnRate)
+        {
+            Spawn();
+            spawnTimer = 0;
+        }
     }
 
     private void Spawn()
@@ -62,13 +67,9 @@ public class ThrowableObjectsManager : MonoBehaviour
             return;
         }
 
-        while (selectedObject == selectedObject1)
+        if (selectedObject == selectedObject1)
         {
-            selectedObject1 = SelectObject();
-            if (selectedObject1 != selectedObject)
-            {
-                break;
-            }
+            OnSelectedObjectUnavailable(selectedObject);
         }
 
         switch (index)
@@ -92,7 +93,7 @@ public class ThrowableObjectsManager : MonoBehaviour
         }
     }
 
-    public ThrowableObjectBehavior SelectObject()
+    private ThrowableObjectBehavior SelectObject()
     {
         int objectsAvailable = 0;
         foreach (ThrowableObjectBehavior item in throwableObjects)
@@ -120,6 +121,19 @@ public class ThrowableObjectsManager : MonoBehaviour
         }
 
         return throwableObjects[objectIndex];
+    }
+
+    private ThrowableObjectBehavior OnSelectedObjectUnavailable(ThrowableObjectBehavior firstObjectSelected)
+    {
+        foreach (ThrowableObjectBehavior item in throwableObjects)
+        {
+            if (item.CanThrow == true && firstObjectSelected != item)
+            {
+                return item;
+            }
+        }
+
+        return null;
     }
     public void NewRoundBehavior()
     {

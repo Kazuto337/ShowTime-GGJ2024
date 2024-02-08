@@ -58,13 +58,15 @@ public class GameManager : MonoBehaviour
             return;
         }
 
-        distanceRequiredForRound += distanceRequiredForRound;
+        distanceRequiredForRound += 10;
         IncreaseRound();
     }
 
     private void IncreaseRound()
     {
         round++;
+
+        Debug.Log("Round " + round);
         IncreaseConveyerBeltSpeed();
         OnNewRound.Invoke();
         IncreaseSpeedPercentage();
