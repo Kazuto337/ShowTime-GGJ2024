@@ -4,15 +4,14 @@ using UnityEngine;
 
 public class NpcManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] List<PublicBehavior> publicBehaviors;
+    private void Start()
     {
-        
-    }
+        int initialState = Random.Range(1, 2);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        foreach (PublicBehavior item in publicBehaviors)
+        {
+            item.SetAnimation(initialState);
+        }
     }
 }

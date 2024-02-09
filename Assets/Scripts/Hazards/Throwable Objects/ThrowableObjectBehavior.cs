@@ -14,6 +14,7 @@ public class ThrowableObjectBehavior : MonoBehaviour
     [SerializeField] bool canThrow;
     [SerializeField] bool onFloor;
 
+    [SerializeField] PublicBehavior npc;
     Animator animator;
 
     public float ThrowingTime { get => throwingTime;}
@@ -68,6 +69,7 @@ public class ThrowableObjectBehavior : MonoBehaviour
     [ContextMenu("Throw Object")]
     public void ThrowObject()
     {
+        npc.SetAnimation(1);
         Vector2 playerPosition = GameManager.instance.GetPlayerPosition();
         Vector3 droppingZonePosition = new Vector3(playerPosition.x, 10, playerPosition.y);
 
@@ -111,6 +113,9 @@ public class ThrowableObjectBehavior : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Floor"))
         {
+            int initialState = Random.Range(1, 2);
+            npc.SetAnimation(initialState);
+
             Debug.Log("Throwable on Floor");
             onFloor = true;
             animator.Play("Static");

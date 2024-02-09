@@ -62,6 +62,7 @@ public class GameManager : MonoBehaviour
         IncreaseRound();
     }
 
+    #region New Round Behavior
     private void IncreaseRound()
     {
         round++;
@@ -80,7 +81,8 @@ public class GameManager : MonoBehaviour
     private void IncreaseSpeedPercentage()
     {
         speedIncreasePercentage += percentageIncreaseIndex;
-    }
+    } 
+    #endregion
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
@@ -97,7 +99,6 @@ public class GameManager : MonoBehaviour
         }
         PauseGame();
     }
-
     #region PauseSettings
     public void PauseGame()
     {
@@ -116,7 +117,6 @@ public class GameManager : MonoBehaviour
         SaveSystem.SaveHighScore(distanceTraveled);
     }
     #endregion
-
     public Vector2 GetPlayerPosition()
     {
         print("GM playerPosition = " + player.transform.position);
