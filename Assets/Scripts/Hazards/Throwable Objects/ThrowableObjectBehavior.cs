@@ -69,7 +69,7 @@ public class ThrowableObjectBehavior : MonoBehaviour
     [ContextMenu("Throw Object")]
     public void ThrowObject()
     {
-        npc.SetAnimation(1);
+        npc.SetAnimation(2);
         Vector2 playerPosition = GameManager.instance.GetPlayerPosition();
         Vector3 droppingZonePosition = new Vector3(playerPosition.x, 10, playerPosition.y);
 
@@ -86,8 +86,6 @@ public class ThrowableObjectBehavior : MonoBehaviour
         {
             t += Time.deltaTime * verticalSpeed;
             transform.position = Vector3.Lerp(transform.position, dropingZonePosition, Mathf.Clamp(t, 0, 1));
-
-            Debug.Log("Throw Object Behavior");
 
             if (Mathf.Abs(transform.position.magnitude - dropingZonePosition.magnitude) < 0.5)
             {
@@ -128,13 +126,6 @@ public class ThrowableObjectBehavior : MonoBehaviour
             gameObject.SetActive(false);
             ResetProperties();
         }
-    }
-
-    private void OnDisable()
-    {
-        canThrow = true;
-        onFloor = false;
-        ResetProperties();
     }
 
     public void ResetProperties()

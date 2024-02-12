@@ -18,5 +18,6 @@ public class PublicBehavior : MonoBehaviour
     public void SetAnimation(int animationState)
     {
         animator.SetInteger("AnimationState" , animationState);
+        Debug.LogWarning("NPC Animation State = " + animationState);
     }
 }

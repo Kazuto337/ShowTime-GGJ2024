@@ -16,7 +16,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] float distanceRequiredForRound;
     private int round;
     public float distanceTraveled, lastDistanceCheckpoint;
-    [SerializeField, Range(10f, 50)] float speedIncreasePercentage;
+    [SerializeField, Range(5f, 50)] float speedIncreasePercentage;
     [SerializeField, Range(1, 10)] float percentageIncreaseIndex;
 
     [Header("UI Objects"), Space(15f)]
@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
     private void IncreaseSpeedPercentage()
     {
         speedIncreasePercentage += percentageIncreaseIndex;
-    } 
+    }
     #endregion
     public void GameOver()
     {
