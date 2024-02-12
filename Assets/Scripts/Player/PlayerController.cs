@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 using FMODUnity;
 
@@ -23,9 +24,9 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("To set different backguard velocities")]
-    [SerializeField] private float bckdMove = 1.0f;
     [SerializeField] private float bckdMoveNormal = 1.0f;
-    [SerializeField] private float bckdMoveRagDoll = 2.0f;
+    [SerializeField] private float bckdMoveRagDoll;
+    [SerializeField] private float bckdMove = 1.0f;
     [Space(2)]
     [Header("To set different behaviors")]
     private bool isDrunkWalk = false;
@@ -52,6 +53,8 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
+        bckdMoveRagDoll = ConveyerBelt.speed;
+
         if (Input.GetKey("v")) ToggleRaddoll(false);
         if (Input.GetKey("c")) ToggleRaddoll(true);
 
@@ -68,7 +71,6 @@ public class PlayerController : MonoBehaviour
         Vector3 move;
         float vMovement = Input.GetAxis("Vertical");
         float hMovement = Input.GetAxis("Horizontal");
-        Debug.Log(vMovement);
 
         if (vMovement != 0 || hMovement != 0)
         {
@@ -143,18 +145,16 @@ public class PlayerController : MonoBehaviour
 
         // call .Move() once only
         controller.Move(move * Time.deltaTime);
-
-
-
-
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.gameObject.tag == "Obstacle(Wide)" || hit.gameObject.tag == "Obstacle(Tall)")
+        if(hit.gameObject.tag == "Obstacle(Wide)" || hit.gameObject.tag == "Obstacle(Tall)" || hit.gameObject.CompareTag("ThrowableObject"))
         {
-            Debug.LogError("Big");
-            ToggleRaddoll(false);
+            //Debug.LogError("Big");
+            GameEvents.instance.OnPlayerHitted.Invoke();
+            //hit.gameObject.GetComponent<Obstacle>().DisableColliders();
+
             FMODUnity.RuntimeManager.PlayOneShot(hitEvent, transform.position);
             FMODUnity.RuntimeManager.PlayOneShot(laughEvent, transform.position);
             //fmod major hit
@@ -162,25 +162,27 @@ public class PlayerController : MonoBehaviour
         if (hit.gameObject.tag == "Obstacle(Small)")
         {            
             isDrunkWalk = true;
-            //playerSpeed -= reduceSpeedFactor;
+            playerSpeed -= reduceSpeedFactor;
             Debug.LogError("Small");
             FMODUnity.RuntimeManager.PlayOneShot(hitEvent, transform.position);
             FMODUnity.RuntimeManager.PlayOneShot(laughEvent, transform.position);
 
             // fmod minor hit
         }
-        if (hit.gameObject.tag == "DeadZone")
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "DeadZone")
         {
             EndGame();
             FMODUnity.RuntimeManager.PlayOneShot(endGameEvent, transform.position);
             //fmod swamp
         }
     }
-    
 
     public void ToggleRaddoll(bool bisAnimating)
     {
-        Debug.Log("Toggle Radboll");
         canMove = bisAnimating;
         bIsRagDoll = !bIsRagDoll;
 
@@ -195,7 +197,6 @@ public class PlayerController : MonoBehaviour
         if (bisAnimating)
         {
             //animator.SetTrigger("Run");
-            Debug.Log("Toggle RadbollIs runing I guess");
 
         }
 

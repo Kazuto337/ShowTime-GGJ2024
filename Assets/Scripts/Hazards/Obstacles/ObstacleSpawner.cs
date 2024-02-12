@@ -5,23 +5,15 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     [SerializeField] List<GameObject> obstacles;
-    static float obstacleSpeed;
-
-    public static float ObstacleSpeed { get => obstacleSpeed; set => obstacleSpeed = value; }
-
-    private void Awake()
-    {
-        obstacleSpeed = 5;
-        foreach (GameObject item in obstacles)
-        {
-            item.GetComponent<Obstacle>().SetSpeed(obstacleSpeed);
-        }
-    }
-
     private void Start()
     {
         RandomizeObstacleList();
         DefaultRoundBehavior();
+
+        foreach (GameObject item in obstacles)
+        {
+            item.GetComponent<Obstacle>().SetSpeed(ConveyerBelt.speed);
+        }
     }
     private void RandomizeObstacleList()
     {
@@ -52,48 +44,29 @@ public class ObstacleSpawner : MonoBehaviour
         }
         return obstacles[poolIndex];
     }
-
-    public static void ModifyObstacleSpeed(float newSpeed)
-    {
-        obstacleSpeed = newSpeed;
-    }
-
     public void NewRoundBehavior()
     {
         foreach (GameObject item in obstacles)
         {
-            item.GetComponent<Obstacle>().SetSpeed(obstacleSpeed);
+            item.GetComponent<Obstacle>().SetSpeed(ConveyerBelt.speed);
         }
-
-        GameManager gameManager = GameManager.instance;
-
-        switch (gameManager.Round)
+    }
+    public void NewRoundBehavior(int currentRound)
+    {
+        switch (currentRound)
         {
             case 1:
-                FirstRoundBehavior();
+                ActivateSmallObstacles();
                 break;
 
             case 2:
-                SecondRoundBehavior();
-                break;
-
-            case 3:
-                ThirdRoundBehavior();
-                break;
-
-            case 4:
-                FourthRoundBehavior();
-                break;
-
-            case 5:
-                FithRoundBehavior();
+                ActivateTallObstacles();
                 break;
 
             default:
-                break;
+                return;
         }
     }
-
     private void DefaultRoundBehavior()
     {
         foreach (GameObject item in obstacles)
@@ -111,7 +84,7 @@ public class ObstacleSpawner : MonoBehaviour
             }
         }
     }
-    private void FirstRoundBehavior()
+    private void ActivateSmallObstacles()
     {
         foreach (GameObject item in obstacles)
         {
@@ -129,7 +102,7 @@ public class ObstacleSpawner : MonoBehaviour
             }
         }
     }
-    private void SecondRoundBehavior()
+    private void ActivateTallObstacles()
     {
         foreach (GameObject item in obstacles)
         {
@@ -139,15 +112,4 @@ public class ObstacleSpawner : MonoBehaviour
             }
         }
     }
-    private void ThirdRoundBehavior()
-    {
-    }
-    private void FourthRoundBehavior()
-    {
-    }
-    private void FithRoundBehavior()
-    {
-    }
-
-
 }

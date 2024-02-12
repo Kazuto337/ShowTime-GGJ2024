@@ -3,24 +3,30 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 using FMODUnity;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [Header("GameProperties")]
-    private int round;
+    [Header("GameEvents")]
+    public UnityEvent OnNewRound;
+
+    [Header("GameProperties"), Space(15)]
     [SerializeField] float distanceRequiredForRound;
-    public float distanceTraveled , lastDistanceChackpoint;
+    private int round;
+    public float distanceTraveled, lastDistanceCheckpoint;
+    [SerializeField, Range(5f, 50)] float speedIncreasePercentage;
+    [SerializeField, Range(1, 10)] float percentageIncreaseIndex;
 
-    [Header("UI Objects" ), Space(15f)]
+    [Header("UI Objects"), Space(15f)]
     [SerializeField] HighScoreBrehavior scoreBrehavior;
-    [SerializeField] GameObject gameOverPanel , newHighScoreView , obtainedScore;
-    [SerializeField] TMP_Text scoreText , newHighScoreTXT, obtainedScoreTXT;
+    [SerializeField] GameObject gameOverPanel, newHighScoreView, obtainedScore;
+    [SerializeField] TMP_Text scoreText, newHighScoreTXT, obtainedScoreTXT;
 
-    [Header("Managers"), Space(15f)]    
-    [SerializeField] ObstaclesSpawningManager obstaclesSpawningManager;
+    [Header("GameObjects")]
+    [SerializeField] GameObject playerer;
     
     [Header("FMOD Sounds"), Space(15f)]
     [SerializeField] EventReference laughEvent;
@@ -43,24 +49,44 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        distanceTraveled += Time.deltaTime;
-        scoreText.text = distanceTraveled.ToString("F2") + " mts";
-        if (lastDistanceChackpoint < distanceRequiredForRound)
-        {
-            lastDistanceChackpoint = distanceTraveled;
-        }
-        else
-        {
-            distanceRequiredForRound += distanceRequiredForRound;
-            IncreaseRound();
-        }
+        UpdateScore();
     }
 
+    public void UpdateScore()
+    {
+        distanceTraveled += Time.deltaTime;
+        scoreText.text = distanceTraveled.ToString("F2") + " mts";
+        if (lastDistanceCheckpoint < distanceRequiredForRound)
+        {
+            lastDistanceCheckpoint = distanceTraveled;
+            return;
+        }
+
+        distanceRequiredForRound += 10;
+        IncreaseRound();
+    }
+
+    #region New Round Behavior
     private void IncreaseRound()
     {
         round++;
-        obstaclesSpawningManager.NewRoundBehavior();
+
+        Debug.Log("Round " + round);
+        IncreaseConveyerBeltSpeed();
+        OnNewRound.Invoke();
+        IncreaseSpeedPercentage();
     }
+    private void IncreaseConveyerBeltSpeed()
+    {
+        float newSpeed = ConveyerBelt.speed + (ConveyerBelt.speed * (speedIncreasePercentage / 100));
+        Debug.Log("Speed: " + newSpeed);
+        ConveyerBelt.ModifySpeed(newSpeed);
+    }
+    private void IncreaseSpeedPercentage()
+    {
+        speedIncreasePercentage += percentageIncreaseIndex;
+    }
+    #endregion
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
@@ -77,7 +103,7 @@ public class GameManager : MonoBehaviour
         }
         PauseGame();
     }
-
+    #region PauseSettings
     public void PauseGame()
     {
         Time.timeScale = 0;
@@ -93,5 +119,12 @@ public class GameManager : MonoBehaviour
     public void SaveScore()
     {
         SaveSystem.SaveHighScore(distanceTraveled);
+    }
+    #endregion
+    public Vector2 GetPlayerPosition()
+    {
+        print("GM playerPosition = " + player.transform.position);
+        Vector2 _return = new Vector2(player.transform.position.x, player.transform.position.z);
+        return _return;
     }
 }
