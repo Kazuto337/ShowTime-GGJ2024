@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TMP_Text scoreText, newHighScoreTXT, obtainedScoreTXT;
 
     [Header("GameObjects")]
-    [SerializeField] GameObject playerer;
+    [SerializeField] GameObject player;
     
     [Header("FMOD Sounds"), Space(15f)]
     [SerializeField] EventReference laughEvent;

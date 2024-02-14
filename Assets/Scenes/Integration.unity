@@ -5062,7 +5062,14 @@ MonoBehaviour:
   scoreText: {fileID: 1826748100}
   newHighScoreTXT: {fileID: 74928401}
   obtainedScoreTXT: {fileID: 230638823}
-  obstaclesSpawningManager: {fileID: 1726302838}
+  player: {fileID: 1683306}
+  laughEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
 --- !u!4 &346050063
 Transform:
   m_ObjectHideFlags: 0
@@ -13352,6 +13359,38 @@ MonoBehaviour:
   reduceSpeedFactor: 0.2
   bckdMoveNormal: 1
   bckdMoveRagDoll: 2
+  bckdMove: 1
+  isWalking: 0
+  FootstepEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  hitEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  laughEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  endGameEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
+  rate: 0
+  player: {fileID: 0}
 --- !u!143 &1147992381
 CharacterController:
   m_ObjectHideFlags: 0
@@ -21550,7 +21589,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2050965331}
   - component: {fileID: 2050965333}
-  - component: {fileID: 2050965334}
   - component: {fileID: 2050965332}
   m_Layer: 0
   m_Name: AudioManager
@@ -21623,11 +21661,6 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!1 &2058928785 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6303263658592549065, guid: d37a54b6cebc9bb49a2ba0bbf9463669, type: 3}
-  m_PrefabInstance: {fileID: 1865758284}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2060398773 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6643478272790880883, guid: d37a54b6cebc9bb49a2ba0bbf9463669, type: 3}
