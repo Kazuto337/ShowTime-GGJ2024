@@ -16192,7 +16192,7 @@ MonoBehaviour:
   - {fileID: 1669792723}
   - {fileID: 1720670922}
   - {fileID: 324680694}
-  - {fileID: 2060398772}
+  - {fileID: 2058928785}
   - {fileID: 1271519376}
   - {fileID: 918057732}
   - {fileID: 846950643}
@@ -21661,6 +21661,11 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!1 &2058928785 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6303263658592549065, guid: d37a54b6cebc9bb49a2ba0bbf9463669, type: 3}
+  m_PrefabInstance: {fileID: 1865758284}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2060398773 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6643478272790880883, guid: d37a54b6cebc9bb49a2ba0bbf9463669, type: 3}

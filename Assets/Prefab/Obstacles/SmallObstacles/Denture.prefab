@@ -124,7 +124,7 @@ MonoBehaviour:
   onPlayerCollision:
     m_PersistentCalls:
       m_Calls: []
-  speed: 0
+  speed: 2
   type: 1
   _colliders:
   - {fileID: 7754560700335713771}

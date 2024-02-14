@@ -49,8 +49,12 @@ public class Obstacle : MonoBehaviour
         }
     }
     public void SetSpeed(float newSpeed)
-    {
+    {        
         speed = newSpeed;
+        if (speed == 0)
+        {
+            Debug.LogWarning("Error assigning new speed");
+        }
     }
     public void ModifyUsableState(bool newUsable)
     {

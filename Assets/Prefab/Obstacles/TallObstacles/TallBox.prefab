@@ -62,7 +62,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  speed: 0
+  speed: 2
   type: 2
   _colliders:
   - {fileID: -3789618941913322112}

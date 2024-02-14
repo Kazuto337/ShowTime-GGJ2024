@@ -12,6 +12,10 @@ public class ObstacleSpawner : MonoBehaviour
 
         foreach (GameObject item in obstacles)
         {
+            if (ConveyerBelt.speed == 0)
+            {
+                Debug.LogWarning("Error assigning belt speed");
+            }
             item.GetComponent<Obstacle>().SetSpeed(ConveyerBelt.speed);
         }
     }
@@ -32,6 +36,7 @@ public class ObstacleSpawner : MonoBehaviour
         GameObject obstacle = LoadObstacle();
         obstacle.transform.position = gameObject.transform.position;
         obstacle.SetActive(true);
+        obstacle.GetComponent<Obstacle>().ModifyUsableState(false);
     }
 
     private GameObject LoadObstacle()
