@@ -38,7 +38,7 @@ public class Obstacle : MonoBehaviour
         transform.rotation = initialTransform.rotation;
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (gameObject.activeInHierarchy)
         {
