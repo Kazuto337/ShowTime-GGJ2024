@@ -74,17 +74,12 @@ public class GameManager : MonoBehaviour
         Debug.Log("Round " + round);
         IncreaseConveyerBeltSpeed();
         OnNewRound.Invoke();
-        IncreaseSpeedPercentage();
     }
     private void IncreaseConveyerBeltSpeed()
     {
         float newSpeed = ConveyerBelt.speed + (ConveyerBelt.speed * (speedIncreasePercentage / 100));
         Debug.Log("Speed: " + newSpeed);
         ConveyerBelt.ModifySpeed(newSpeed);
-    }
-    private void IncreaseSpeedPercentage()
-    {
-        speedIncreasePercentage += percentageIncreaseIndex;
     }
     #endregion
     public void GameOver()

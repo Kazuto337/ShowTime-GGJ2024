@@ -36,6 +36,8 @@ public class PlayerController : MonoBehaviour
     private float jumpHeight = 1.0f;
     private float gravityValue = 9.81f;
 
+    private int attemps = 3;
+
     [SerializeField] EventReference FootstepEvent;
     [SerializeField] EventReference hitEvent;
     [SerializeField] EventReference laughEvent;
@@ -48,8 +50,6 @@ public class PlayerController : MonoBehaviour
     {
         rigibodies = GetComponentsInChildren<Rigidbody>();
         ToggleRaddoll(true);
-
-
     }
     private void Update()
     {
@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
         if (vMovement > 0 && canMove)
         {
             //fmod walk
-            
+
 
             move = new Vector3(hMovement, 0, -vMovement);
             animator.SetFloat("ZSpeed", vMovement);
@@ -149,7 +149,7 @@ public class PlayerController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.gameObject.tag == "Obstacle(Wide)" || hit.gameObject.tag == "Obstacle(Tall)" || hit.gameObject.CompareTag("ThrowableObject"))
+        if (hit.gameObject.tag == "Obstacle(Wide)" || hit.gameObject.tag == "Obstacle(Tall)" || hit.gameObject.CompareTag("ThrowableObject"))
         {
             //Debug.LogError("Big");
             GameEvents.instance.OnPlayerHitted.Invoke();
@@ -158,9 +158,11 @@ public class PlayerController : MonoBehaviour
             FMODUnity.RuntimeManager.PlayOneShot(hitEvent, transform.position);
             FMODUnity.RuntimeManager.PlayOneShot(laughEvent, transform.position);
             //fmod major hit
+
+            StartCoroutine(Recover());
         }
         if (hit.gameObject.tag == "Obstacle(Small)")
-        {            
+        {
             isDrunkWalk = true;
             playerSpeed -= reduceSpeedFactor;
             Debug.LogError("Small");
@@ -168,6 +170,8 @@ public class PlayerController : MonoBehaviour
             FMODUnity.RuntimeManager.PlayOneShot(laughEvent, transform.position);
 
             // fmod minor hit
+
+            StartCoroutine(Recover());
         }
     }
 
@@ -219,6 +223,20 @@ public class PlayerController : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot(endGameEvent, transform.position);
         GameManager.instance.GameOver();
         Debug.LogError("Game has ended");
+    }
+
+    private IEnumerator Recover()
+    {
+        if (attemps <= 0)
+        {
+            yield break;
+        }
+
+        yield return new WaitForSeconds(3f);
+
+        attemps--;
+        ToggleRaddoll(true);
+        Debug.Log("Recover");
     }
 
 }

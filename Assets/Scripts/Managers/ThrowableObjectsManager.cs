@@ -141,7 +141,7 @@ public class ThrowableObjectsManager : MonoBehaviour
 
         if (currentRound > 4)
         {
-            spawnRate -= spawnRate * 0.10f;
+            spawnRate -= spawnRate * 0.05f;
             return;
         }
 
