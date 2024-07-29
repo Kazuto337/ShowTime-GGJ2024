@@ -21,6 +21,10 @@ public class Obstacle : MonoBehaviour
     [SerializeField] ObstacleType type;
     [SerializeField] List<Collider> _colliders;
 
+    [SerializeField] MeshRenderer _renderer;
+    Material[] _defaultMaterials;
+    [SerializeField] Material hologramMaterial;
+
     public bool Usable { get => usable; }
     public ObstacleType Type { get => type; }
     public float Speed { get => speed; }
@@ -28,6 +32,15 @@ public class Obstacle : MonoBehaviour
     private void Awake()
     {
         initialTransform = transform;
+    }
+
+    private void Start()
+    {
+        _defaultMaterials = new Material[_renderer.materials.Length];
+        for (int i = 0; i < _renderer.materials.Length; i++)
+        {
+            _defaultMaterials[i] = _renderer.materials[i];
+        }
     }
 
     private void OnEnable()
@@ -49,7 +62,7 @@ public class Obstacle : MonoBehaviour
         }
     }
     public void SetSpeed(float newSpeed)
-    {        
+    {
         speed = newSpeed;
         if (speed == 0)
         {
@@ -90,12 +103,25 @@ public class Obstacle : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             GameEvents.instance.OnPlayerHitted.Invoke();
+            ActivateHologram();
+            DisableColliders();
         }
+    }
+
+    private void ActivateHologram()
+    {
+        Material[] newMaterials = new Material[_renderer.materials.Length];
+        for (int i = 0; i < newMaterials.Length; i++)
+        {
+            newMaterials[i] = hologramMaterial;
+        }
+
+        _renderer.materials = newMaterials;
     }
 
     private void OnDisable()
     {
-        
+        EnableColliders();
+        _renderer.materials = _defaultMaterials;
     }
-
 }

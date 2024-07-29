@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 943391930426493343}
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -0.040999576, y: 1.4120002, z: -0.3584615}
+  m_LocalPosition: {x: -0.041, y: 0.222, z: -0.358}
   m_LocalScale: {x: 202.8002, y: 202.8001, z: 182.69154}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -161,7 +161,9 @@ MonoBehaviour:
   type: 3
   _colliders:
   - {fileID: 9196740656608151598}
-  - {fileID: 421836924679458087}
+  - {fileID: 5450398972711038069}
+  _renderer: {fileID: 6726281005966916802}
+  hologramMaterial: {fileID: 2100000, guid: daf896f6a8b107d4686bf013be669edb, type: 2}
 --- !u!65 &9196740656608151598
 BoxCollider:
   m_ObjectHideFlags: 0

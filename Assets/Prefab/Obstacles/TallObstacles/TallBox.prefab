@@ -66,6 +66,8 @@ MonoBehaviour:
   type: 2
   _colliders:
   - {fileID: -3789618941913322112}
+  _renderer: {fileID: 8577201351063290730}
+  hologramMaterial: {fileID: 2100000, guid: daf896f6a8b107d4686bf013be669edb, type: 2}
 --- !u!54 &4138213614237914467
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -106,6 +108,7 @@ GameObject:
   - component: {fileID: 5403427578309182624}
   - component: {fileID: 7707971720102986324}
   - component: {fileID: 8577201351063290730}
+  - component: {fileID: 6508200567221183448}
   m_Layer: 3
   m_Name: TallBox
   m_TagString: Obstacle(Tall)
@@ -179,3 +182,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &6508200567221183448
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5771534372776341428}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.009591965, y: 0.010000006, z: 0.0009123597}
+  m_Center: {x: 0, y: -6.056921e-17, z: 0.0001}

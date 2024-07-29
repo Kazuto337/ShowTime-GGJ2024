@@ -83,6 +83,51 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &4407399435594536152
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3568090567301647196}
+  - component: {fileID: 4603971041880759878}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3568090567301647196
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4407399435594536152}
+  m_LocalRotation: {x: -0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.00082087517, y: -0.005, z: -0.175008}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8860673492812014847}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4603971041880759878
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4407399435594536152}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.9719856, y: 0.11993283, z: 0.18964972}
+  m_Center: {x: 0, y: -0.29173157, z: 0}
 --- !u!1 &8195635652293295685
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,6 +160,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1051217546757765375}
+  - {fileID: 3568090567301647196}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -129,8 +175,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.3393395, y: 0.58935165, z: 0.59756565}
-  m_Center: {x: 0.0038038492, y: -0.06602168, z: -0.17751312}
+  m_Size: {x: 2.103612, y: 0.52542347, z: 0.46858466}
+  m_Center: {x: 0.0038038492, y: -0.034057587, z: -0.17751312}
 --- !u!54 &7931235947474688264
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -166,3 +212,5 @@ MonoBehaviour:
   type: 3
   _colliders:
   - {fileID: 3144752092914031395}
+  _renderer: {fileID: 1026718029853807395}
+  hologramMaterial: {fileID: 2100000, guid: daf896f6a8b107d4686bf013be669edb, type: 2}

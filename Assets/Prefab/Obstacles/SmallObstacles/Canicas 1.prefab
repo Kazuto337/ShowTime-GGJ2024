@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2236310498749633195}
   m_Layer: 3
   m_Name: Canicas 1
-  m_TagString: Obstacle(Wide)
+  m_TagString: Obstacle(Small)
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3475925027997898389}
   m_LocalRotation: {x: -0.7071069, y: 0, z: 0, w: 0.7071067}
-  m_LocalPosition: {x: 1.1, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 76.6, y: 76.6, z: 76.6}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -50,7 +50,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 122
-  m_CollisionDetection: 3
+  m_CollisionDetection: 1
 --- !u!65 &5596078558326393168
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -62,8 +62,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.015920037, y: 0.014127819, z: 0.0015720119}
-  m_Center: {x: -0.00023303083, y: -0.0003761909, z: -0.0058129104}
+  m_Size: {x: 0.015920037, y: 0.014127819, z: 0.0020591118}
+  m_Center: {x: -0.00023303083, y: -0.00037619093, z: -0.0055693625}
 --- !u!114 &2236310498749633195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,6 +83,8 @@ MonoBehaviour:
   type: 0
   _colliders:
   - {fileID: 5596078558326393168}
+  _renderer: {fileID: 3946093924248990285}
+  hologramMaterial: {fileID: 2100000, guid: daf896f6a8b107d4686bf013be669edb, type: 2}
 --- !u!1 &4304637694591908278
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +96,7 @@ GameObject:
   - component: {fileID: 7995336982045080570}
   - component: {fileID: 1157982352372487405}
   - component: {fileID: 3946093924248990285}
+  - component: {fileID: 8309513121577503021}
   m_Layer: 3
   m_Name: Canincas 1
   m_TagString: Obstacle(Wide)
@@ -145,6 +148,8 @@ MeshRenderer:
   m_RendererPriority: 0
   m_Materials:
   - {fileID: 2100000, guid: 007229cd6c1357f4c839d179c0a56d37, type: 2}
+  - {fileID: 2100000, guid: ef2551e869d8e7e42964b4b1bb941201, type: 2}
+  - {fileID: 2100000, guid: 254a1fbffe3784a43888f5d2f0646b10, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -166,3 +171,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8309513121577503021
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4304637694591908278}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0062654056, y: 0.008555299, z: 0.00023489493}
+  m_Center: {x: -0.00023303085, y: -0.00037619096, z: -0.00053416035}

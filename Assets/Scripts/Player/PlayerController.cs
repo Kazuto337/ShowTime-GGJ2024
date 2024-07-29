@@ -32,11 +32,12 @@ public class PlayerController : MonoBehaviour
     private bool isDrunkWalk = false;
     private bool canMove = true;
     public bool isWalking = false;
+    private bool isRecovering = false;
 
     private float jumpHeight = 1.0f;
     private float gravityValue = 9.81f;
 
-    private int attemps = 3;
+    [SerializeField] private int attemps = 3;
 
     [SerializeField] EventReference FootstepEvent;
     [SerializeField] EventReference hitEvent;
@@ -55,8 +56,8 @@ public class PlayerController : MonoBehaviour
     {
         bckdMoveRagDoll = ConveyerBelt.speed;
 
-        if (Input.GetKey("v")) ToggleRaddoll(false);
-        if (Input.GetKey("c")) ToggleRaddoll(true);
+        //if (Input.GetKey("v")) ToggleRaddoll(false);
+        //if (Input.GetKey("c")) ToggleRaddoll(true);
 
         #region checking ground
         //fmod
@@ -149,30 +150,28 @@ public class PlayerController : MonoBehaviour
 
     private void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.tag == "Obstacle(Wide)" || hit.gameObject.tag == "Obstacle(Tall)" || hit.gameObject.CompareTag("ThrowableObject"))
+        if (hit.gameObject.tag == "Obstacle(Wide)" || hit.gameObject.tag == "Obstacle(Tall)" || hit.gameObject.tag == "Obstacle(Small)" || hit.gameObject.CompareTag("ThrowableObject"))
         {
             //Debug.LogError("Big");
-            GameEvents.instance.OnPlayerHitted.Invoke();
-            //hit.gameObject.GetComponent<Obstacle>().DisableColliders();
+            //GameEvents.instance.OnPlayerHitted.Invoke();
 
             FMODUnity.RuntimeManager.PlayOneShot(hitEvent, transform.position);
             FMODUnity.RuntimeManager.PlayOneShot(laughEvent, transform.position);
             //fmod major hit
 
             StartCoroutine(Recover());
-        }
-        if (hit.gameObject.tag == "Obstacle(Small)")
-        {
-            isDrunkWalk = true;
-            playerSpeed -= reduceSpeedFactor;
-            Debug.LogError("Small");
-            FMODUnity.RuntimeManager.PlayOneShot(hitEvent, transform.position);
-            FMODUnity.RuntimeManager.PlayOneShot(laughEvent, transform.position);
 
-            // fmod minor hit
-
-            StartCoroutine(Recover());
         }
+        //if (hit.gameObject.tag == "Obstacle(Small)")
+        //{
+        //    isDrunkWalk = true;
+        //    playerSpeed -= reduceSpeedFactor;
+        //    Debug.LogError("Small");
+        //    FMODUnity.RuntimeManager.PlayOneShot(hitEvent, transform.position);
+        //    FMODUnity.RuntimeManager.PlayOneShot(laughEvent, transform.position);
+
+        //    // fmod minor hit
+        //}
     }
 
     private void OnTriggerEnter(Collider other)
@@ -227,16 +226,19 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator Recover()
     {
-        if (attemps <= 0)
+        if (attemps <= 0 || isRecovering)
         {
             yield break;
         }
 
-        yield return new WaitForSeconds(3f);
+        isRecovering = true;        
+
+        yield return new WaitForSeconds(2f);
 
         attemps--;
         ToggleRaddoll(true);
         Debug.Log("Recover");
+        isRecovering = false;
     }
 
 }

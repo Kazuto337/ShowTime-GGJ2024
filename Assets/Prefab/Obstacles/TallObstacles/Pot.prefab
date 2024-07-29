@@ -83,6 +83,8 @@ MonoBehaviour:
   type: 2
   _colliders:
   - {fileID: 4807223130471788078}
+  _renderer: {fileID: 1096644069675776718}
+  hologramMaterial: {fileID: 2100000, guid: daf896f6a8b107d4686bf013be669edb, type: 2}
 --- !u!1 &6641697803503855735
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +96,7 @@ GameObject:
   - component: {fileID: 6255165567263000920}
   - component: {fileID: 1405329706825940155}
   - component: {fileID: 1096644069675776718}
+  - component: {fileID: 942512695748886938}
   m_Layer: 3
   m_Name: Pot
   m_TagString: Untagged
@@ -170,3 +173,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &942512695748886938
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6641697803503855735}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0007151028, y: 0.00419666, z: 0.0038467082}
+  m_Center: {x: -0.011059132, y: 0.00090124324, z: -0.000060347797}
