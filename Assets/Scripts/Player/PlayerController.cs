@@ -157,9 +157,7 @@ public class PlayerController : MonoBehaviour
 
             FMODUnity.RuntimeManager.PlayOneShot(hitEvent, transform.position);
             FMODUnity.RuntimeManager.PlayOneShot(laughEvent, transform.position);
-            //fmod major hit
-
-            StartCoroutine(Recover());
+            //fmod major hit           
 
         }
         //if (hit.gameObject.tag == "Obstacle(Small)")
@@ -203,7 +201,11 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        if (bisAnimating == false) bckdMove = bckdMoveRagDoll;
+        if (bisAnimating == false)
+        { 
+            bckdMove = bckdMoveRagDoll;
+            StartCoroutine(Recover());
+        }
         else bckdMove = bckdMoveNormal;
         Invoke("ReactivateCharacterController", .6f);
     }
@@ -233,7 +235,7 @@ public class PlayerController : MonoBehaviour
 
         isRecovering = true;        
 
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(2.5f);
 
         attemps--;
         ToggleRaddoll(true);
