@@ -34,6 +34,7 @@ public class ObstacleSpawner : MonoBehaviour
     public void Spawn()
     {
         GameObject obstacle = LoadObstacle();
+
         obstacle.transform.position = gameObject.transform.position;
         obstacle.SetActive(true);
         obstacle.GetComponent<Obstacle>().ModifyUsableState(false);
@@ -42,12 +43,21 @@ public class ObstacleSpawner : MonoBehaviour
     private GameObject LoadObstacle()
     {
         int poolIndex = Random.Range(0, obstacles.Count);
-
-        while (obstacles[poolIndex].GetComponent<Obstacle>().Usable == false)
+        if (obstacles[poolIndex].GetComponent<Obstacle>().Usable)
         {
-            poolIndex = Random.Range(0, obstacles.Count);
+            return obstacles[poolIndex];            
         }
-        return obstacles[poolIndex];
+
+        GameObject foundObstacle = null;
+        foreach (var item in obstacles)
+        {
+            if (item.GetComponent<Obstacle>().Usable)
+            {
+                foundObstacle = item;
+            }
+        }
+
+        return foundObstacle;
     }
     public void NewRoundBehavior()
     {

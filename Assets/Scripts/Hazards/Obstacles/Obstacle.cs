@@ -17,7 +17,7 @@ public class Obstacle : MonoBehaviour
 
     [SerializeField] float speed;
     Transform initialTransform;
-    private bool usable;
+    private bool usable = true;
     [SerializeField] ObstacleType type;
     [SerializeField] List<Collider> _colliders;
 
@@ -35,7 +35,7 @@ public class Obstacle : MonoBehaviour
     }
 
     private void Start()
-    {
+    {        
         _defaultMaterials = new Material[_renderer.materials.Length];
         for (int i = 0; i < _renderer.materials.Length; i++)
         {
@@ -94,7 +94,7 @@ public class Obstacle : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Boundary"))
         {
-            gameObject.SetActive(false);
+            gameObject.SetActive(false);            
         }
     }
 
@@ -122,6 +122,7 @@ public class Obstacle : MonoBehaviour
     private void OnDisable()
     {
         EnableColliders();
+        usable = true;
         _renderer.materials = _defaultMaterials;
     }
 }

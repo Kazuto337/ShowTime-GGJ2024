@@ -118,6 +118,11 @@ public class ThrowableObjectBehavior : MonoBehaviour
             onFloor = true;
             animator.Play("Static");
         }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            GameEvents.instance.OnPlayerHitted.Invoke();
+        }
     }
     private void OnTriggerEnter(Collider other)
     {

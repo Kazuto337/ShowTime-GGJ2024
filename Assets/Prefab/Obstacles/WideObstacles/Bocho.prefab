@@ -188,8 +188,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.1923562, y: 0.3942922, z: 1.4504913}
-  m_Center: {x: 0.02000002, y: 0.39, z: 1.2532897}
+  m_Size: {x: 1.1923562, y: 0.33411714, z: 1.250096}
+  m_Center: {x: 0.02000002, y: 0.35991237, z: 1.323124}
 --- !u!1 &6185109911132050999
 GameObject:
   m_ObjectHideFlags: 0
@@ -222,6 +222,7 @@ Transform:
   m_Children:
   - {fileID: 8970733780691279163}
   - {fileID: 5668579015796451134}
+  - {fileID: 8792047905287962859}
   m_Father: {fileID: 5455664755287063113}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -280,3 +281,48 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &6951087899394532054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8792047905287962859}
+  - component: {fileID: 795572504657610911}
+  m_Layer: 3
+  m_Name: GameObject (2)
+  m_TagString: Platform
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8792047905287962859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6951087899394532054}
+  m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
+  m_LocalPosition: {x: -0.04, y: 1.422, z: 0.376}
+  m_LocalScale: {x: 202.8002, y: 202.8001, z: 182.69154}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2579187607491774446}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &795572504657610911
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6951087899394532054}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0041048895, y: 0.0051132757, z: 0.00026806054}
+  m_Center: {x: 0.0028553365, y: -0.00021210682, z: -0.00019282514}

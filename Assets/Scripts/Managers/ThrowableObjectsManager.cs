@@ -10,7 +10,6 @@ public class ThrowableObjectsManager : MonoBehaviour
 
     bool isActive = false;
 
-
     private void Start()
     {
         isActive = false;
@@ -135,12 +134,18 @@ public class ThrowableObjectsManager : MonoBehaviour
 
         return null;
     }
+
     public void NewRoundBehavior()
     {
         int currentRound = GameManager.instance.Round;
 
         if (currentRound > 4)
         {
+            if (spawnRate <= 2.5f)
+            {
+                return;
+            }
+
             spawnRate -= spawnRate * 0.05f;
             return;
         }
@@ -160,6 +165,7 @@ public class ThrowableObjectsManager : MonoBehaviour
                 return;
         }
     }
+
     private void ActivateSmallObjects()
     {
         foreach (ThrowableObjectBehavior item in throwableObjects)
@@ -170,6 +176,7 @@ public class ThrowableObjectsManager : MonoBehaviour
             }
         }
     }
+
     private void ActivateBigObjects()
     {
         foreach (ThrowableObjectBehavior item in throwableObjects)
