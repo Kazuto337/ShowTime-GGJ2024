@@ -128,6 +128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3917998587152778368}
   - component: {fileID: 5206087032312495853}
+  - component: {fileID: 6679755516077262489}
   - component: {fileID: 3790542868286764393}
   - component: {fileID: 2990981696268242349}
   m_Layer: 3
@@ -144,7 +145,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4401237673869123130}
-  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071067}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: 0}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_ConstrainProportionsScale: 1
@@ -152,7 +153,7 @@ Transform:
   - {fileID: 3215875161494931483}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 180}
 --- !u!65 &5206087032312495853
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -164,8 +165,21 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.080751, y: 2.6863344, z: 0.8890134}
-  m_Center: {x: -0.27007663, y: 0.26682255, z: 0.511306}
+  m_Size: {x: 0.54515284, y: 1.0278856, z: 0.88901347}
+  m_Center: {x: -1.0239426, y: -0.48447227, z: 0.51130605}
+--- !u!65 &6679755516077262489
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4401237673869123130}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.1293607, y: 2.6863344, z: 0.8890134}
+  m_Center: {x: -0.2943848, y: 0.26682255, z: 0.511306}
 --- !u!54 &3790542868286764393
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -269,8 +283,6 @@ MeshRenderer:
   m_Materials:
   - {fileID: 2100000, guid: 07df6f0bdef551044ac0cd343667d87c, type: 2}
   - {fileID: 2100000, guid: c1251bec9c3cc904287ec8eb43e5293d, type: 2}
-  - {fileID: 2100000, guid: c758429885ef84a419d1b6ef9eb8c71e, type: 2}
-  - {fileID: 2100000, guid: c6be04b18a58fc84abc3fa2c050f5e32, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

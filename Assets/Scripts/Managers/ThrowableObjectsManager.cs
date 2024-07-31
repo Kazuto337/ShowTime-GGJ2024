@@ -94,7 +94,9 @@ public class ThrowableObjectsManager : MonoBehaviour
 
     private ThrowableObjectBehavior SelectObject()
     {
+        ThrowableObjectBehavior objectSelected = null;
         int objectsAvailable = 0;
+
         foreach (ThrowableObjectBehavior item in throwableObjects)
         {
             if (item.CanThrow)
@@ -110,16 +112,22 @@ public class ThrowableObjectsManager : MonoBehaviour
         }
 
         int objectIndex = Random.Range(0, throwableObjects.Count - 1);
-        while (!throwableObjects[objectIndex].CanThrow)
+        objectSelected = throwableObjects[objectIndex];
+
+        if (objectSelected.CanThrow)
         {
-            objectIndex = Random.Range(0, throwableObjects.Count - 1);
-            if (throwableObjects[objectIndex].CanThrow)
+            return objectSelected;
+        }
+
+        foreach (var item in throwableObjects)
+        {
+            if (item.CanThrow)
             {
-                break;
+                objectSelected = item;
             }
         }
 
-        return throwableObjects[objectIndex];
+        return objectSelected;
     }
 
     private ThrowableObjectBehavior OnSelectedObjectUnavailable(ThrowableObjectBehavior firstObjectSelected)

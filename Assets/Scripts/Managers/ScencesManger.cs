@@ -21,6 +21,7 @@ public class ScencesManger : MonoBehaviour
     }
     public void QuitGame()
     {
+        StopAllCoroutines();
         Application.Quit();
     }
     public void Restart()

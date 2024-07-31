@@ -56,7 +56,7 @@ public class ObstaclesSpawningManager : MonoBehaviour
     }
     private void DecreaseSpawningRate()
     {
-        if (spawningActivationRate <= 0.75f)
+        if (spawningActivationRate <= 0.95f)
         {
             return;
         }

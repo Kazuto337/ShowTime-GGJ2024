@@ -74,7 +74,7 @@ public class ObstacleSpawner : MonoBehaviour
                 ActivateSmallObstacles();
                 break;
 
-            case 2:
+            case 3:
                 ActivateTallObstacles();
                 break;
 

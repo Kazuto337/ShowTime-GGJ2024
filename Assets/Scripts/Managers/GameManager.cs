@@ -18,7 +18,6 @@ public class GameManager : MonoBehaviour
     private int round;
     public float distanceTraveled, lastDistanceCheckpoint;
     [SerializeField, Range(5f, 50)] float speedIncreasePercentage;
-    [SerializeField, Range(1, 10)] float percentageIncreaseIndex;
 
     [Header("UI Objects"), Space(15f)]
     [SerializeField] HighScoreBrehavior scoreBrehavior;
@@ -109,6 +108,7 @@ public class GameManager : MonoBehaviour
     }
     public void PlayAgain()
     {
+        StopAllCoroutines();
         ScencesManger.instance.Restart();
     }
     public void SaveScore()
