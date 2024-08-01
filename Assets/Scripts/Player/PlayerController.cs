@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     }
     private void Update()
     {
-        bckdMoveRagDoll = ConveyerBelt.speed;
+        bckdMoveRagDoll = ConveyerBelt.Instance.Speed;
 
         //if (Input.GetKey("v")) ToggleRaddoll(false);
         //if (Input.GetKey("c")) ToggleRaddoll(true);

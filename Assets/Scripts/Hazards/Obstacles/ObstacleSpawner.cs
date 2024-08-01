@@ -12,11 +12,11 @@ public class ObstacleSpawner : MonoBehaviour
 
         foreach (GameObject item in obstacles)
         {
-            if (ConveyerBelt.speed == 0)
+            if (ConveyerBelt.Instance.Speed == 0)
             {
                 Debug.LogWarning("Error assigning belt speed");
             }
-            item.GetComponent<Obstacle>().SetSpeed(ConveyerBelt.speed);
+            item.GetComponent<Obstacle>().SetSpeed(ConveyerBelt.Instance.Speed);
         }
     }
     private void RandomizeObstacleList()
@@ -63,7 +63,7 @@ public class ObstacleSpawner : MonoBehaviour
     {
         foreach (GameObject item in obstacles)
         {
-            item.GetComponent<Obstacle>().SetSpeed(ConveyerBelt.speed);
+            item.GetComponent<Obstacle>().SetSpeed(ConveyerBelt.Instance.Speed);
         }
     }
     public void NewRoundBehavior(int currentRound)

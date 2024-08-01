@@ -76,9 +76,9 @@ public class GameManager : MonoBehaviour
     }
     private void IncreaseConveyerBeltSpeed()
     {
-        float newSpeed = ConveyerBelt.speed + (ConveyerBelt.speed * (speedIncreasePercentage / 100));
+        float newSpeed = ConveyerBelt.Instance.Speed + (ConveyerBelt.Instance.Speed * (speedIncreasePercentage / 100));
         Debug.Log("Speed: " + newSpeed);
-        ConveyerBelt.ModifySpeed(newSpeed);
+        ConveyerBelt.Instance.ModifySpeed(newSpeed);
     }
     #endregion
     public void GameOver()

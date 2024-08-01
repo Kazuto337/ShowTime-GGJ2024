@@ -54,7 +54,7 @@ public class ThrowableObjectBehavior : MonoBehaviour
 
     public void UpdateSpeed()
     {
-        horizontalSpeed = ConveyerBelt.speed;
+        horizontalSpeed = ConveyerBelt.Instance.Speed;
     }
 
     /// <summary>
